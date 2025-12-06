@@ -1,6 +1,7 @@
-import Navbar from "../components/Navbar";
-import Hero from "../components/HeroSection";
-import Contact from "../components/Contact";
+import Navbar from "../components/layout/Navbar";
+import Hero from "../components/home/HeroSection";
+import Projects from "../components/layout/Project";
+import Footer from "../components/layout/Footer";
 
 export default function Home() {
   return (
@@ -9,11 +10,9 @@ export default function Home() {
       <Navbar />
       <div className="p-20 bg-gray-50">
         <Hero />
-        <Contact />
+        <Projects />
+        <Footer />
       </div>
-      <h1>Projecst</h1>
-      <h1>About</h1>
-      <h1>Contact</h1>
     </div>
     </>
   );

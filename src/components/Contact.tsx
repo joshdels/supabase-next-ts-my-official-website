@@ -1,6 +1,6 @@
 export default function Contact() {
   return (
-    <div className="border border-gray-300 rounded-xl p-6 bg-gray-100 max-w-md mx-auto">
+    <div className="border border-gray-300 rounded-xl p-6 bg-gray-100 max-w-lg mx-auto">
       <form className="flex flex-col gap-4">
         <h1 className="text-2xl font-semibold mb-2">Get in Touch</h1>
         <p className="text-gray-700 mb-4">
