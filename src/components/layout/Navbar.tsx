@@ -7,6 +7,7 @@ export default function Navbar() {
           <p>Work</p>
           <p>Skill</p>
           <p>Project</p>
+          <p>About</p>
         </div>
       </div>
     </>

@@ -2,13 +2,13 @@ export default function About() {
   return(
     <>
       <div className="">
-        <h1 className="text-2xl font-semibold mb-2">About me</h1>
+        <h1 className="text-2xl font-semibold mb-5">About me</h1>
 
-        <p className="mb-2">
-          I've always been fascinated by maps. Every time I look at one, it feels like the universe is guiding me toward this field—helping me see, analyze, and share how powerful geospatial data can be.
+        <p className="mb-5">
+          I've always been fascinated by maps. Every time I look at one, it feels like the universe is guiding me toward this field helping me see, analyze, and share how powerful geospatial data can be.
         </p>
 
-        <p className="mb-4">
+        <p className="mb-8">
           Today, I focus on building modern geospatial solutions that help businesses grow, operate smarter, and make better decisions using accurate location intelligence.
         </p>
 
