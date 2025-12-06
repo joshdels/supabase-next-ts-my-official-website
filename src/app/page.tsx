@@ -7,7 +7,7 @@ export default function Home() {
     <>
     <div className="">
       <Navbar />
-      <div className="p-5 bg-gray-50">
+      <div className="p-20 bg-gray-50">
         <Hero />
         <Contact />
       </div>
