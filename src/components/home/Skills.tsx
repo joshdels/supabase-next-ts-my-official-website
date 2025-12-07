@@ -1,4 +1,4 @@
-import { SkillCard } from "./common/Card"
+import { SkillCard } from "../common/Card"
 
 export default function Skills() {
   return (

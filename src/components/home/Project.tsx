@@ -1,4 +1,4 @@
-import { OtherProject, MainProject, SkillCard } from "./common/Card";
+import { OtherProject, MainProject } from "../common/Card";
 
 export default function Projects() {
 
