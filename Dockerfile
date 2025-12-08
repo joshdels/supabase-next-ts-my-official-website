@@ -32,3 +32,8 @@ EXPOSE 3000
 
 # Start the app
 CMD ["npm", "start"]
+
+
+# RUN COMMAND
+# docker build -t my-next-app .
+# docker run -p 3000:3000 my-next-app

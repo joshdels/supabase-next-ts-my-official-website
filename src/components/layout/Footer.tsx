@@ -14,7 +14,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-6">
-          <div className="text-center text-gray-500">
+          <div className="text-center text-sm text-gray-400">
             <p>© 2025 Joshua De Leon. Making Geospatial Easy.</p>
           </div>
         </div>

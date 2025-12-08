@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import maplibregl from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 
-export default function Map() {
+export default function DemoMap() {
   const mapContainer = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<maplibregl.Map | null>(null);
 
@@ -14,10 +14,17 @@ export default function Map() {
     // this sets the actual DOM
     mapRef.current = new maplibregl.Map({
       container: mapContainer.current, 
-      style: "https://basemaps.cartocdn.com/gl/positron-gl-style/style.json",
+      style: "https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json",
       center: [0, 0],
       zoom: 1,
     });
+
+    mapRef.current.addControl(new maplibregl.NavigationControl({ showCompass: true, showZoom: true }), "top-right");
+    
+    const marker = new maplibregl.Marker({ color: "#FF5722" })
+      .setLngLat([120.982, 14.6042])
+      .setPopup(new maplibregl.Popup({ offset: 25 }).setText("Hello! This is your demo marker."))
+      .addTo(mapRef.current);
 
     return () => {
       mapRef.current?.remove();
