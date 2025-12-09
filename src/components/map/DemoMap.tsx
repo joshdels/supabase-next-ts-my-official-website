@@ -21,7 +21,7 @@ export default function DemoMap() {
 
     mapRef.current.addControl(new maplibregl.NavigationControl({ showCompass: true, showZoom: true }), "top-right");
     
-    const marker = new maplibregl.Marker({ color: "#FF5722" })
+    new maplibregl.Marker({ color: "#FF5722" })
       .setLngLat([120.982, 14.6042])
       .setPopup(new maplibregl.Popup({ offset: 25 }).setText("Hello! This is your demo marker."))
       .addTo(mapRef.current);
