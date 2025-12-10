@@ -1,5 +1,7 @@
 import { SkillCard } from "../common/Card"
 
+// This is subjected to not show cause its redundant
+
 export default function Skills() {
   return (
     <>

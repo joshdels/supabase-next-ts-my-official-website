@@ -18,7 +18,7 @@ export default function Results() {
   ];
 
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="pt-20 bg-gray-50">
       <div className="mx-auto flex flex-col">
         {/* Intro */}
         <div className="mb-12">
@@ -34,9 +34,9 @@ export default function Results() {
           {benefits.map((benefit, index) => (
             <div
               key={index}
-              className="flex-1 border rounded-xl p-6 shadow hover:shadow-xl transition-shadow duration-300 bg-white min-w-[260px]"
+              className="flex-1 border border-gray-300  rounded-xl p-8 shadow hover:shadow-xl transition-shadow duration-300 bg-white min-w-[260px]"
             >
-              <h3 className="text-xl font-semibold mb-2">{benefit.title}</h3>
+              <h3 className="text-xl font-semibold mb-5">{benefit.title}</h3>
               <p className="text-gray-700">{benefit.description}</p>
             </div>
           ))}

@@ -3,8 +3,8 @@ import Map from "../map/Map";
 export default function Hero() {
   return (
     <>
-      <div className="flex flex-row gap-10">
-        <div className="flex-1">
+      <div className="flex flex-col lg:flex-row gap-10 xl:gap-20">
+        <div className="lg:flex-1">
           <p className="text-lg font-medium">Geospatial Web Developer</p>
 
           <h1 className="text-3xl font-bold mt-2">
@@ -18,7 +18,8 @@ export default function Hero() {
             operations through mapping, analytics, and location-driven insights.
           </p>
         </div>
-        <div className="flex-1">
+
+        <div className="lg:flex-1">
           <Map />
         </div>
       </div>
