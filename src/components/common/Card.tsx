@@ -24,7 +24,7 @@ export function MainProject({
                  transition-shadow duration-300 mt-5"
     >
       <div className="flex-1">
-        <p className="text-sm font-semibold text-indigo-600 uppercase tracking-wide mb-2">
+        <p className="text-sm font-semibold text-gray-800 uppercase tracking-wide mb-2">
           Highlight / 01
         </p>
 
@@ -37,7 +37,7 @@ export function MainProject({
         {link && (
           <a
             href={link}
-            className="text-indigo-600 font-medium hover:underline mt-4 block"
+            className="text-gray-400 font-medium hover:text-gray-700 mt-4 block"
           >
             Visit →
           </a>

@@ -13,13 +13,13 @@ interface ProjectProps {
 
 const Projects: ProjectProps[] = [
   {
-    title: "Real Estate & Agriculture Insights",
-    logo: "/images.png",
+    title: "Homify",
+    logo: "/project/homify_logo.svg",
     description:
-      "Struggling to make sense of scattered land or crop data? We turn messy spatial information into clear insights for better property and farm decisions.",
-    tech: ["supabase", ],
-    features: ["Heatmaps", "Cluster rendering", "Tile server integration"],
-    link: "asdfasdf",
+      "Struggling to find, show, rent your ideal home? I turn messy spatial information into clear insights for better property and home decisions.",
+    tech: ["django","leaflet", "postgres" ],
+    features: ["Home location markdown", "List and manage your home details", "Show private and public your house location"],
+    link: "https://homify.topmapsolutions.com/",
     isMain: true,
     dateCreated: "2025-01-10"
   },

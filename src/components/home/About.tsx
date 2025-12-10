@@ -1,3 +1,8 @@
+"use client";
+
+import { Github, Linkedin, FileUser} from "lucide-react";
+
+
 export default function About() {
   return(
     <>
@@ -13,8 +18,35 @@ export default function About() {
         </p>
 
         <div className="flex items-center gap-4 mt-4">
-          <img src="/images.png" alt="Technology logo 1" className="h-10 w-auto" />
-          <img src="/images.png" alt="Technology logo 2" className="h-10 w-auto" />
+          <a
+            href="https://github.com/joshdels"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-500 hover:text-gray-700 transition-colors"
+            aria-label="Profile"
+          >
+            <Github size={40} />
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/joshua-de-leon-8b0310301/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-500 hover:text-gray-700 transition-colors"
+            aria-label="Profile"
+          >
+            <Linkedin size={40} />
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/joshua-de-leon-8b0310301/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-500 hover:text-gray-700 transition-colors"
+            aria-label="Profile"
+          >
+            <FileUser size={40} />
+          </a>
         </div>
       </div>
     </>
