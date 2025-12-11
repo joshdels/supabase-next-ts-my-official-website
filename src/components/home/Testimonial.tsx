@@ -3,12 +3,12 @@ export default function Testimonial() {
     {
       name: "Alice Johnson",
       role: "Farm Manager",
-      text: "Zmine transformed the way we manage our crops. The insights are fast, accurate, and easy to act on.",
+      text: "Joshua transformed the way we manage our crops. The insights are fast, accurate, and easy to act on.",
     },
     {
       name: "Mark Thompson",
       role: "Real Estate Analyst",
-      text: "Huge datasets used to crash my system, but Zmine handles everything smoothly. Highly recommend!",
+      text: "Huge datasets used to crash my system, but Joshua handles everything smoothly. Highly recommend!",
     },
     {
       name: "Sofia Reyes",
@@ -24,13 +24,13 @@ export default function Testimonial() {
 
   return (
     <section className="py-20">
-      <h2 className="text-2xl font-bold mb-6">What Clients Say</h2>
-      <div className="flex justify-center">
+      <h2 className="text-3xl font-bold mb-6">What Clients Say</h2>
+      <div className="flex">
         <div className="overflow-x-auto scroll-smooth snap-x snap-mandatory flex gap-6 py-4">
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="shrink-0 w-80 border rounded-xl p-6 shadow hover:shadow-lg transition-shadow duration-300 snap-start"
+              className="shrink-0 w-110 border border-gray-300 rounded-xl p-6 shadow hover:shadow-md transition-shadow duration-300 snap-start"
             >
               <p className="text-gray-700 mb-4">"{testimonial.text}"</p>
               <h3 className="font-semibold">{testimonial.name}</h3>

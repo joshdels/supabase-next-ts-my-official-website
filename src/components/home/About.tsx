@@ -7,7 +7,7 @@ export default function About() {
   return(
     <>
       <div className="mb-15">
-        <h1 className="text-2xl font-semibold mb-5">About me</h1>
+        <h1 className="text-3xl font-semibold mb-5">About me</h1>
 
         <p className="mb-5">
           I've always been fascinated by maps. Every time I look at one, it feels like the universe is guiding me toward this field helping me see, analyze, and share how powerful geospatial data can be.
@@ -25,7 +25,7 @@ export default function About() {
             className="text-gray-500 hover:text-gray-700 transition-colors"
             aria-label="Profile"
           >
-            <Github size={40} />
+            <Github size={32} />
           </a>
 
           <a
@@ -35,17 +35,17 @@ export default function About() {
             className="text-gray-500 hover:text-gray-700 transition-colors"
             aria-label="Profile"
           >
-            <Linkedin size={40} />
+            <Linkedin size={32} />
           </a>
 
           <a
             href="https://www.linkedin.com/in/joshua-de-leon-8b0310301/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-500 hover:text-gray-700 transition-colors"
+            className="text-gray-500 hover:text-gray-700 transition-colors "
             aria-label="Profile"
           >
-            <FileUser size={40} />
+            <FileUser size={32} />
           </a>
         </div>
       </div>

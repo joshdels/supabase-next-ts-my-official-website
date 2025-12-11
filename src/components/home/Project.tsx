@@ -14,41 +14,32 @@ interface ProjectProps {
 const Projects: ProjectProps[] = [
   {
     title: "Homify",
-    logo: "/project/homify_logo.svg",
+    logo: "/project/logo_homify.svg",
     description:
       "Struggling to find, show, rent your ideal home? I turn messy spatial information into clear insights for better property and home decisions.",
-    tech: ["django","leaflet", "postgres" ],
+    tech: ["django","leaflet", "docker", "postgres", "bootstrap" ],
     features: ["Home location markdown", "List and manage your home details", "Show private and public your house location"],
     link: "https://homify.topmapsolutions.com/",
     isMain: true,
-    dateCreated: "2025-01-10"
+    dateCreated: "2025-09-10"
   },
   {
-    title: "MapEngine",
-    logo: "/images.png",
-    description: "A mapping engine built for large-scale spatial analysis.",
-    tech: ["React", "Leaflet", "Supabase"],
-    features: ["Heatmaps", "Cluster rendering", "Tile server integration"],
-    link: "asdfasdf",
-    dateCreated: "2025-02-10"
+    title: "Airports",
+    logo: "/project/airplane.png",
+    description: "Getting Lost of the airports in the philippines?, I collect and cluster the locations of airports by their class type",
+    tech: ["vanilla js", "arcgis sdk"],
+    features: ["Open Street Map", "Cluster rendering", "Airplanes location markdown"],
+    link: "https://joshdels.github.io/WebGIS-Projects-2025/03-Airport-overview/",
+    dateCreated: "2025-07-10"
   },
   {
-    title: "ParcelDropper",
-    logo: "/images.png",
-    description: "Automated package drop-off system for couriers.",
-    tech: ["C++", "ESP32", "PostgreSQL"],
-    features: ["Barcode scanning", "PIN access", "Solenoid controls"],
-    link: "",
-    dateCreated: "2025-01-10"
-  },
-  {
-    title: "asdrt",
-    logo: "/images.png",
-    description: "Automated package drop-off system for couriers.",
-    tech: ["C++", "ESP32", "PostgreSQL"],
-    features: ["Barcode scanning", "PIN access", "Solenoid controls"],
-    link: "asdfasdf",
-    dateCreated: "2026-01-10"
+    title: "City Land Cover",
+    logo: "/project/landcover.png",
+    description: "What land cover is the biggest?, I should how their land cover data and automatically creates a statistics of it",
+    tech: ["geoserver", "docker", "leaflet", "vanilla js", "chart js"],
+    features: ["city landcover", "bar chart statistics", "map boundaries"],
+    link: "https://landuseandlandcover.vercel.app/",
+    dateCreated: "2025-08-10"
   },
 ];
 
@@ -66,8 +57,13 @@ export default function Project() {
         {main && <MainProject {...main} />}
 
         <div className="flex gap-5 flex-wrap">
-          {others.map((p) => (
-            <OtherProject key={p.title} {...p} />
+          {others.map((p, index) => (
+            <OtherProject 
+              key={p.title}
+              index={index}
+              total={others.length} 
+              {...p} 
+            />
           ))}
         </div>
       </div>

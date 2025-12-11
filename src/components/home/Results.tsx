@@ -19,22 +19,21 @@ export default function Results() {
 
   return (
     <section className="pt-20 bg-gray-50">
+
       <div className="mx-auto flex flex-col">
-        {/* Intro */}
         <div className="mb-12">
           <h2 className="text-3xl font-bold mb-3">Why Choose Me?</h2>
-          <h3 className="text-xl text-gray-600 mb-4">Your geospatial problem solver</h3>
+          <h3 className="text-xl text-gray-600 mb-4">Your everyday geospatial problem solver</h3>
           <p className="text-gray-700">
-            Here’s how I help businesses save time, reduce costs, and make smarter decisions with geospatial data.
+            Here's how I help businesses save time, reduce costs, and make smarter decisions with geospatial data in urban and agriculture.
           </p>
         </div>
 
-        {/* Benefits */}
         <div className="flex flex-wrap gap-8">
           {benefits.map((benefit, index) => (
             <div
               key={index}
-              className="flex-1 border border-gray-300  rounded-xl p-8 shadow hover:shadow-xl transition-shadow duration-300 bg-white min-w-[260px]"
+              className="flex-1 border border-gray-300  rounded-xl p-8 shadow hover:shadow-md transition-shadow duration-300 bg-white min-w-[260px]"
             >
               <h3 className="text-xl font-semibold mb-5">{benefit.title}</h3>
               <p className="text-gray-700">{benefit.description}</p>
