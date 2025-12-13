@@ -26,7 +26,7 @@ const Projects: ProjectProps[] = [
   {
     title: "Airports",
     logo: "/project/airplane.png",
-    description: "Getting Lost of the airports in the philippines?, I collect and cluster the locations of airports by their class type",
+    description: "Getting Lost of the airports in the Philippines?, I collect and cluster the locations of airports by their class type",
     tech: ["vanilla js", "arcgis sdk"],
     features: ["Open Street Map", "Cluster rendering", "Airplanes location markdown"],
     link: "https://joshdels.github.io/WebGIS-Projects-2025/03-Airport-overview/",
