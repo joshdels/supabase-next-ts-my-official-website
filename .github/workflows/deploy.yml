@@ -1,0 +1,32 @@
+name: Deploy Docker on Push
+
+on:
+  push:
+    branches:
+      - main  # Trigger deployment on pushes to main branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout your repo
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Setup SSH agent with your private key
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      # Step 3: Connect to server and deploy
+      - name: Deploy on server
+        run: |
+          ssh -o StrictHostKeyChecking=no root@YOUR_SERVER_IP "
+            cd /path/to/project &&
+            git pull origin main &&
+            docker-compose down &&
+            docker-compose up -d --build
+          "
+
