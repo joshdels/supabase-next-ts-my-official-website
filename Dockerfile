@@ -3,14 +3,14 @@ FROM node:20-alpine AS builder
 
 WORKDIR /app
 
-# Install all dependencies (including dev)
+# Install dependencies (including devDependencies for build)
 COPY package*.json ./
 RUN npm ci --frozen-lockfile
 
-# Copy source
+# Copy all source files
 COPY . .
 
-# Build Next.js app
+# Build Next.js
 RUN npm run build
 
 # Stage 2: Production image
@@ -18,16 +18,17 @@ FROM node:20-alpine AS runner
 
 WORKDIR /app
 
-# Copy only package.json & lockfile
-COPY package*.json ./
+# Copy package.json and lockfile
+COPY --from=builder /app/package*.json ./
 
 # Install only production dependencies
 RUN npm ci --production --ignore-scripts --prefer-offline
 
-# Copy built files from builder
+# Copy built Next.js output and public assets
 COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/public ./public
-COPY --from=builder /app/next.config.js ./
+COPY --from=builder /app/node_modules ./node_modules
 
 EXPOSE 3000
+
 CMD ["npm", "start"]
