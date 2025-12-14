@@ -3,3 +3,6 @@ services:
     image: my-next-app:latest
     ports:
       - "3000:3000"
+    environment:
+      NEXT_PULIC_SUPABASE_URL: ${NEXT_PULIC_SUPABASE_URL}
+      SUPABASE_SERVICE_ROLE_KEY: ${SUPABASE_SERVICE_ROLE_KEY}
