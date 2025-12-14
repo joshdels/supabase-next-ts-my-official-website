@@ -2,39 +2,39 @@ name: Deploy Next.js Docker
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
-
     steps:
-      # 1️⃣ Checkout repository
-      - name: Checkout
+      # 1️⃣ Checkout repo
+      - name: Checkout code
         uses: actions/checkout@v3
 
-      # 2️⃣ Setup Node.js
+      # 2️⃣ Setup Node.js for build
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
           node-version: 20
-          cache: 'npm'
+          cache: npm
 
       # 3️⃣ Install dependencies & build Next.js
-      - name: Install & Build
+      - name: Build Next.js app
         run: |
           npm ci
           npm run build
 
-      # 4️⃣ Build Docker image locally
+      # 4️⃣ Build Docker image
       - name: Build Docker image
         run: docker build -t my-next-app:latest .
 
-      # 5️⃣ Save and compress Docker image
+      # 5️⃣ Save image as tar
       - name: Save Docker image
         run: docker save my-next-app:latest | gzip > image.tar.gz
 
-      # 6️⃣ Copy image to server using SCP
+      # 6️⃣ Upload image to server
       - name: Upload Docker image
         uses: appleboy/scp-action@v0.1.4
         with:
@@ -44,7 +44,7 @@ jobs:
           source: image.tar.gz
           target: /root
 
-      # 7️⃣ Load image & deploy using SSH
+      # 7️⃣ Deploy image on server
       - name: Deploy on server
         uses: appleboy/ssh-action@v1.0.0
         with:
@@ -52,12 +52,7 @@ jobs:
           username: root
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            # Load Docker image
-            docker load < image.tar.gz
-            
-            # Stop old containers & remove old networks
-            cd ~/myapps/next-portfolio
+            docker load < /root/image.tar.gz
+            cd ~/myapps/supabase-next-ts-my-official-website
             docker-compose -f docker-compose.prod.yml down
-            
-            # Start fresh
-            docker-compose -f docker-compose.prod.yml up -d --build
+            docker-compose -f docker-compose.prod.yml up -d
