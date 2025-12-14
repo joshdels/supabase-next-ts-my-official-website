@@ -23,7 +23,7 @@ jobs:
       # Step 3: Connect to server and deploy
       - name: Deploy on server
         run: |
-          ssh -o StrictHostKeyChecking=no root@YOUR_SERVER_IP "
+          ssh -o StrictHostKeyChecking=no root@${{ secrets.SERVER_IP }} "
             cd /path/to/project &&
             git pull origin main &&
             docker-compose down &&
