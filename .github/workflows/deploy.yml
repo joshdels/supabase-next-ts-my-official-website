@@ -1,6 +1,5 @@
 name: Deploy Docker on Push
 
-# Trigger deployment on pushes to main branch
 on:
   push:
     branches:
@@ -11,29 +10,46 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Checkout the repo
+      # 1️⃣ Checkout repo
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Step 2: Setup SSH agent
+      # 2️⃣ Setup Node.js for build
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      # 3️⃣ Install dependencies & build Next.js
+      - name: Install & Build
+        run: |
+          npm ci
+          npm run build
+
+      # 4️⃣ Build Docker image
+      - name: Build Docker image
+        run: docker build -t my-next-app .
+
+      # 5️⃣ Setup SSH
       - name: Setup SSH
         uses: webfactory/ssh-agent@v0.9.0
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-      # Step 3: Connect to server and deploy
+      # 6️⃣ Deploy to server
       - name: Deploy on server
         run: |
-          ssh -o StrictHostKeyChecking=no root@${{ secrets.SERVER_IP }} "
-            # Go to the project directory
+          ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 root@${{ secrets.SERVER_IP }} "
             cd ~/myapps/next-portfolio &&
 
-            # Force reset local code to match remote
+            # Force reset code to match GitHub
             git fetch origin main &&
             git reset --hard origin/main &&
             git clean -fd &&
 
-            # Rebuild and restart Docker containers
+            # Stop old containers
             docker-compose -f docker-compose.prod.yml down &&
-            docker-compose -f docker-compose.prod.yml up -d --build
+
+            # Build and start in background to avoid SSH timeout
+            nohup docker-compose -f docker-compose.prod.yml up -d --build > deploy.log 2>&1 &
           "
