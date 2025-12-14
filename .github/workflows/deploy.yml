@@ -1,20 +1,21 @@
 name: Deploy Docker on Push
 
+# Trigger deployment on pushes to main branch
 on:
   push:
     branches:
-      - main  # Trigger deployment on pushes to main branch
+      - main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Checkout your repo
+      # Step 1: Checkout the repo
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Step 2: Setup SSH agent with your private key
+      # Step 2: Setup SSH agent
       - name: Setup SSH
         uses: webfactory/ssh-agent@v0.9.0
         with:
@@ -24,9 +25,15 @@ jobs:
       - name: Deploy on server
         run: |
           ssh -o StrictHostKeyChecking=no root@${{ secrets.SERVER_IP }} "
+            # Go to the project directory
             cd ~/myapps/next-portfolio &&
-            git pull origin main &&
-            docker-compose -f docker-compose.dev.yml down &&
-            docker-compose -f docker-compose.dev.yml up -d --build
-          "
 
+            # Force reset local code to match remote
+            git fetch origin main &&
+            git reset --hard origin/main &&
+            git clean -fd &&
+
+            # Rebuild and restart Docker containers
+            docker-compose -f docker-compose.prod.yml down &&
+            docker-compose -f docker-compose.prod.yml up -d --build
+          "
