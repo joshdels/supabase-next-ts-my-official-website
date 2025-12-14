@@ -236,9 +236,17 @@ export default function Map() {
     setIs3D(!is3D);
   };
 
+    const levels = [
+      { color: "#e9edf4", label: "0-1 level" },
+      { color: "#cdd6e4", label: "2-3 levels" },
+      { color: "#9fb2cf", label: "4-6 levels" },
+      { color: "#5f7fb3", label: "7-10 levels" },
+      { color: "#1e3f73", label: "10+ levels" },
+    ];
+
   return (
     <div className="relative w-full">
-      {/* Search bar container */}
+      {/* Search bar */}
       <div className="absolute top-3 left-3 z-20 flex flex-col gap-2">
         <div className="flex gap-2">
           <input
@@ -246,73 +254,60 @@ export default function Map() {
             placeholder="Search location..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="px-3 py-1 rounded-lg border border-gray-300 shadow-xm bg-gray-100 hover:border-gray-400"
+            onKeyDown={(e) => e.key === "Enter" && handleSearch()}
+            className="px-2 py-1 rounded-lg border border-gray-300 shadow-sm bg-gray-100 hover:border-gray-400"
+            aria-label="Search location"
           />
           <button
             onClick={handleSearch}
             className="px-3 py-1 rounded-lg bg-gray-700 text-white hover:bg-gray-600 shadow-sm cursor-pointer"
+            aria-label="Search button"
           >
             Go
           </button>
         </div>
-        {/* Show search errors */}
         {searchError && (
-          <div className="bg-gray-50 rounded-lg px-2 py-1 shadow-xm text-center">
-            <span className="text-red-600 text-sm font-semibold mt-1">{searchError}</span>
+          <div className="bg-gray-50 rounded-lg px-2 py-1 shadow-sm text-center">
+            <span className="text-red-600 text-sm font-semibold">{searchError}</span>
           </div>
         )}
       </div>
 
       {/* Loading spinner */}
       {loading && (
-        <div className="absolute top-3 right-3 z-20 bg-white/90 px-3 py-1 rounded-lg text-sm shadow flex items-center gap-2">
+        <div className="absolute top-3 right-3 z-20 bg-white/90 px-3 py-1 rounded-lg text-sm shadow flex flex-col sm:flex-row lg:flex-row items-center gap-2">
           <span className="animate-spin h-4 w-4 border-2 border-gray-400 border-t-transparent rounded-full" />
-          Loading buildings…
+          <span className="whitespace-nowrap">Loading buildings…</span>
         </div>
       )}
 
-      {/* Legend for building levels */}
+      {/* Legend */}
       <div className="absolute bottom-3 left-3 z-20 bg-white rounded-lg shadow p-3 w-40 text-sm">
         <div className="font-semibold mb-2 text-center text-lg">Building Floors</div>
-        
-        <div className="flex items-center justify-between mt-1 w-full">
-          <span className="block w-4 h-4 rounded-sm" style={{ backgroundColor: "#e9edf4" }} />
-          <span>0-1 level</span>
-        </div>
-
-        <div className="flex items-center justify-between mt-1 w-full">
-          <span className="block w-4 h-4 rounded-sm" style={{ backgroundColor: "#cdd6e4" }} />
-          <span>2-3 levels</span>
-        </div>
-
-        <div className="flex items-center justify-between mt-1 w-full">
-          <span className="block w-4 h-4 rounded-sm" style={{ backgroundColor: "#9fb2cf" }} />
-          <span>4-6 levels</span>
-        </div>
-
-        <div className="flex items-center justify-between mt-1 w-full">
-          <span className="block w-4 h-4 rounded-sm" style={{ backgroundColor: "#5f7fb3" }} />
-          <span>7-10 levels</span>
-        </div>
-
-        <div className="flex items-center justify-between mt-1 w-full">
-          <span className="block w-4 h-4 rounded-sm" style={{ backgroundColor: "#1e3f73" }} />
-          <span>10+ levels</span>
-        </div>
+        {levels.map((level) => (
+          <div key={level.label} className="flex items-center justify-between mt-1 w-full">
+            <span
+              className="block w-4 h-4 rounded-sm"
+              style={{ backgroundColor: level.color }}
+            />
+            <span>{level.label}</span>
+          </div>
+        ))}
       </div>
 
-      {/* 2D/3D toggle button */}
+      {/* 2D/3D toggle */}
       <button
         onClick={toggle3D}
         className="absolute bottom-3 right-3 z-20 px-3 py-2 bg-gray-700 text-white rounded-lg shadow hover:bg-gray-600 cursor-pointer"
+        aria-label="Toggle 2D/3D map"
       >
-        {is3D ? "3D" : "2D"}
+        {is3D ? "Switch to 2D" : "Switch to 3D"}
       </button>
 
       {/* Map container */}
       <div
         ref={mapContainer}
-        className="w-full h-[580px] border border-gray-300 rounded-2xl hover:shadow-sm"
+        className="w-full h-145  border border-gray-300 rounded-2xl hover:shadow-sm"
       />
     </div>
   );

@@ -3,7 +3,7 @@ import Map from "../map/Map";
 export default function Hero() {
   return (
     <>
-      <div className="flex flex-col lg:flex-row gap-10 xl:gap-20 pt-10 pb-5">
+      <div className="flex flex-col lg:flex-row gap-10 xl:gap-20 lg:pt-10 pb-5">
         <div className="lg:flex-1">
           <p className="text-lg font-medium">Geospatial Web Developer</p>
 

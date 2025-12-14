@@ -3,11 +3,11 @@ FROM node:20-alpine AS builder
 
 WORKDIR /app
 
-# Install dependencies first (for caching)
+# Install all dependencies (including dev)
 COPY package*.json ./
 RUN npm ci --frozen-lockfile
 
-# Copy app source
+# Copy source
 COPY . .
 
 # Build Next.js app
@@ -18,12 +18,16 @@ FROM node:20-alpine AS runner
 
 WORKDIR /app
 
-# Copy only production-ready files
-COPY --from=builder /app/package*.json ./
+# Copy only package.json & lockfile
+COPY package*.json ./
+
+# Install only production dependencies
+RUN npm ci --production --ignore-scripts --prefer-offline
+
+# Copy built files from builder
 COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/public ./public
-COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/next.config.js ./
 
 EXPOSE 3000
-
 CMD ["npm", "start"]

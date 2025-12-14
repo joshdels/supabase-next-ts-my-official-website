@@ -4,7 +4,7 @@ import Contact from "../home/Contact";
 export default function Footer() {
   return (
     <>
-      <div className="flex flex-col px-10 sm:px-10 md:px-20 lg:px-40 1xl:px-40 2xl:px-80 pb-5 pt-15 bg-gray-100 border-t border-gray-200">
+      <div className="flex flex-col px-5 sm:px-5 md:px-20 lg:px-40 1xl:px-40 2xl:px-80 pb-5 pt-15 bg-gray-100 border-t border-gray-200">
         <div className="flex flex-col lg:flex-row gap-4">
           <div className="flex-1">
             <About />

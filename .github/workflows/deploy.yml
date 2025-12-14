@@ -9,7 +9,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      # 1️⃣ Checkout repo
+      # 1️⃣ Checkout repo in CI
       - name: Checkout code
         uses: actions/checkout@v3
 
@@ -44,7 +44,7 @@ jobs:
           source: image.tar.gz
           target: /root
 
-      # 7️⃣ Deploy image on server
+      # 7️⃣ Deploy on server
       - name: Deploy on server
         uses: appleboy/ssh-action@v1.0.0
         with:
@@ -52,7 +52,20 @@ jobs:
           username: root
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
+            # Load Docker image
             docker load < /root/image.tar.gz
+            
+            # Go to app directory
             cd ~/myapps/supabase-next-ts-my-official-website
+            
+            # Force update main branch to match remote
+            git fetch origin
+            git reset --hard origin/main
+            
+            # Restart Docker containers
             docker-compose -f docker-compose.prod.yml down
             docker-compose -f docker-compose.prod.yml up -d
+
+            # Clean Docker 
+            docker container prune -f
+            docker image prune -f

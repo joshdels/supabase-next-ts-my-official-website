@@ -17,12 +17,11 @@ export function MainProject({
   tech = [],
   features = [],
   link,
-  index,
 }: CardProps) {
   return (
     <div
       className="border border-gray-300 rounded-xl p-8 
-                 flex flex-row gap-10 bg-white
+                 flex flex-col md:flex-row gap-10 bg-white
                  hover:shadow-md hover:shadow-gray-300 
                  transition-shadow duration-300 mt-5"
     >

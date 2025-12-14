@@ -15,7 +15,7 @@ export default function Navbar() {
         </h1>
 
         {/* Menu items */}
-        <div className="flex flex-row gap-6 md:gap-8 text-gray-700">
+        <div className="flex flex-row gap-2 sm:gap-2 md:gap-4 lg:gap-6 text-sm lg:text-md  text-gray-700">
           <p className="cursor-pointer hover:text-gray-900 transition-colors duration-200">Home</p>
           <p className="cursor-pointer hover:text-gray-900 transition-colors duration-200">Services</p>
           <p className="cursor-pointer hover:text-gray-900 transition-colors duration-200">Demo</p>

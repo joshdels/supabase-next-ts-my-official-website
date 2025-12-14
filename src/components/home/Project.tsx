@@ -35,7 +35,7 @@ const Projects: ProjectProps[] = [
   {
     title: "City Land Cover",
     logo: "/project/landcover.png",
-    description: "What land cover is the biggest?, I should how their land cover data and automatically creates a statistics of it",
+    description: "What land cover is the biggest?, I show how their land cover data and automatically create statistics of it",
     tech: ["geoserver", "docker", "leaflet", "vanilla js", "chart js"],
     features: ["city landcover", "bar chart statistics", "map boundaries"],
     link: "https://landuseandlandcover.vercel.app/",
@@ -49,24 +49,22 @@ export default function Project() {
     .sort((a, b) => new Date(b.dateCreated).getTime() - new Date(a.dateCreated).getTime());
 
   return (
-    <>
-      <div className="mt-15">
-        <h1 className="font-bold text-3xl mb-3">Projects</h1>
-        <p>How I solved different problems in each projects </p>
-        
-        {main && <MainProject {...main} />}
+    <div className="mt-16">
+      <h1 className="font-bold text-3xl mb-3">Projects</h1>
+      <p className="mb-8 text-gray-600">How I solved different problems in each project</p>
+      
+      {main && <MainProject {...main} />}
 
-        <div className="flex gap-5 flex-wrap">
-          {others.map((p, index) => (
-            <OtherProject 
-              key={p.title}
-              index={index}
-              total={others.length} 
-              {...p} 
-            />
-          ))}
-        </div>
+      <div className="flex flex-wrap gap-5 justify-center">
+        {others.map((p, index) => (
+          <OtherProject 
+            key={p.title}
+            index={index}
+            total={others.length} 
+            {...p} 
+          />
+        ))}
       </div>
-    </>
+    </div>
   )
 }
