@@ -18,7 +18,7 @@ Clone the repository
 git clone https://github.com/joshdels/supabase-next-ts-my-official-website
 ```
 
-### Create a .env file with your Supabase credentials:
+### Create a .env file with your Supabase credentials: 
 more of this in the documentation 
 https://supabase.com/docs/guides/getting-started/quickstarts/nextjs
 
@@ -68,4 +68,6 @@ chown root:root /root/.ssh /root/.ssh/authorized_keys
 ```
 SERVER_IP = your server ip
 SSH_PRIVATE_KEY  = your ssh_genereated private key
+NEXT_PUBLIC_SUPABASE_URL="YOUR SUPABASE URL"
+NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY = "YOUR SUPABASE KEY""
 ```
