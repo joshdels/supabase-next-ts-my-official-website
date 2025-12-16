@@ -29,10 +29,13 @@ jobs:
           npm ci
           npm run build
 
-      # 4️⃣ Build Docker image
+      - name: Set up Docker Buildx
+        run: |
+          docker buildx create --name mybuilder --use
+          docker buildx inspect --bootstrap
+
       - name: Build Docker image
         run: docker buildx build --build-arg SUPABASE_URL=${{ secrets.SUPABASE_URL }} --build-arg SUPABASE_ANON_KEY=${{ secrets.SUPABASE_ANON_KEY }} --build-arg NEXT_PUBLIC_SUPABASE_URL=${{ secrets.NEXT_PUBLIC_SUPABASE_URL }} --build-arg NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=${{ secrets.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY }} -t my-next-app:latest --load .
-
 
       # 5️⃣ Save image as tar
       - name: Save Docker image
