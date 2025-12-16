@@ -31,7 +31,11 @@ jobs:
 
       # 4️⃣ Build Docker image
       - name: Build Docker image
-        run: docker build -t my-next-app:latest .
+        run: |
+          docker build \
+            --build-arg SUPABASE_URL=${{ secrets.SUPABASE_URL }} \
+            --build-arg SUPABASE_ANON_KEY=${{ secrets.SUPABASE_ANON_KEY }} \
+            -t my-next-app:latest .
 
       # 5️⃣ Save image as tar
       - name: Save Docker image
@@ -46,6 +50,10 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           source: image.tar.gz
           target: /root
+
+      # Remove local tar to save space
+      - name: Remove local image tar
+          run: rm -f image.tar.gz
 
       # 7️⃣ Deploy on server
       - name: Deploy on server
@@ -72,3 +80,7 @@ jobs:
             # Clean unused Docker images & containers
             docker container prune -f
             docker image prune -f
+
+
+
+
