@@ -43,7 +43,7 @@ jobs:
 
       # 6️⃣ Build Docker image
       - name: Build Docker image
-         run: |
+        run: |
           docker buildx build \
             -t my-next-app:latest \
             --load .
