@@ -23,31 +23,40 @@ jobs:
           node-version: 20
           cache: npm
 
-      # 3️⃣ Build Next.js locally (optional)
+      # 3️⃣ Build Next.js locally
       - name: Build Next.js
         run: |
           npm ci
           npm run build
 
+      # 4️⃣ Reset Docker Buildx (clean previous builders & caches)
+      - name: Reset Docker Buildx
+        run: |
+          docker buildx rm mybuilder || true
+          docker buildx prune -f
+
+      # 5️⃣ Set up Docker Buildx
       - name: Set up Docker Buildx
         run: |
           docker buildx create --name mybuilder --use
           docker buildx inspect --bootstrap
 
+      # 6️⃣ Build Docker image
       - name: Build Docker image
-        run: docker buildx build \
-          --build-arg SUPABASE_URL=${{ secrets.SUPABASE_URL }} \
-          --build-arg SUPABASE_ANON_KEY=${{ secrets.SUPABASE_ANON_KEY }} \
-          --build-arg NEXT_PUBLIC_SUPABASE_URL=${{ secrets.NEXT_PUBLIC_SUPABASE_URL }} \
-          --build-arg NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=${{ secrets.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY }} \
-          -t my-next-app:latest \
-          --load .
-          
-      # 5️⃣ Save image as tar
+        run: |
+          docker buildx build \
+            --build-arg SUPABASE_URL=${{ secrets.SUPABASE_URL }} \
+            --build-arg SUPABASE_ANON_KEY=${{ secrets.SUPABASE_ANON_KEY }} \
+            --build-arg NEXT_PUBLIC_SUPABASE_URL=${{ secrets.NEXT_PUBLIC_SUPABASE_URL }} \
+            --build-arg NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=${{ secrets.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY }} \
+            -t my-next-app:latest \
+            --load .
+
+      # 7️⃣ Save image as tar
       - name: Save Docker image
         run: docker save my-next-app:latest | gzip > image.tar.gz
 
-      # 6️⃣ Upload image to server
+      # 8️⃣ Upload image to server
       - name: Upload Docker image
         uses: appleboy/scp-action@v0.1.4
         with:
@@ -57,11 +66,11 @@ jobs:
           source: image.tar.gz
           target: /root
 
-      # Remove local tar to save space
+      # 9️⃣ Remove local tar to save space
       - name: Remove local image tar
         run: rm -f image.tar.gz
 
-      # 7️⃣ Deploy on server
+      # 🔟 Deploy on server
       - name: Deploy on server
         uses: appleboy/ssh-action@v1.0.0
         with:
@@ -71,14 +80,14 @@ jobs:
           script: |
             # Load Docker image
             docker load < /root/image.tar.gz
-            
+
             # Go to app directory
             cd ~/myapps/supabase-next-ts-my-official-website
-            
+
             # Force update main branch
             git fetch origin
             git reset --hard origin/main
-            
+
             # Restart Docker containers
             docker-compose -f docker-compose.prod.yml down
             docker-compose -f docker-compose.prod.yml up -d
@@ -87,6 +96,6 @@ jobs:
             docker container prune -f
             docker image prune -f
 
-
-
-
+      # 11️⃣ Remove Docker Buildx builder after deployment
+      - name: Remove Docker Buildx builder
+        run: docker buildx rm mybuilder || true
