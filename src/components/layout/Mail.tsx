@@ -14,7 +14,7 @@ interface Message {
 export default function MailboxPage() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [loading, setLoading] = useState(true);
-  const [sortAsc, setSortAsc] = useState(false); // false = newest first
+  const [sortAsc, setSortAsc] = useState(false);
 
   // Fetch messages from your API
   const fetchMessages = async () => {

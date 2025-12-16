@@ -11,7 +11,7 @@ export default function Navbar() {
       >
         {/* Logo / Name */}
         <h1 className="font-bold text-xl md:text-xl tracking-wide cursor-pointer hover:text-gray-900 transition-colors duration-300">
-          Joshua De Leon
+          Joshdels
         </h1>
 
         {/* Menu items */}
