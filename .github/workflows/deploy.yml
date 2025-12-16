@@ -53,7 +53,7 @@ jobs:
 
       # Remove local tar to save space
       - name: Remove local image tar
-          run: rm -f image.tar.gz
+        run: rm -f image.tar.gz
 
       # 7️⃣ Deploy on server
       - name: Deploy on server
