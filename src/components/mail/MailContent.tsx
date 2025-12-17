@@ -1,5 +1,9 @@
 "use client";
 
+// add this  error and loading states
+//   if (loading) return <p>Loading messages...</p>;
+//   if (error) return <p className="text-red-500">{error}</p>;
+
 import { useEffect, useState } from "react";
 
 interface Message {
