@@ -43,8 +43,8 @@ export default function Navbar() {
       {/* Mobile menu dropdown */}
       <div
         className={`
-          md:hidden bg-white shadow-md absolute top-16 left-0 w-full flex flex-col items-center gap-4 py-4 text-gray-700
-          transition-all duration-300 ease-in-out overflow-hidden
+          md:hidden bg-white/90 backdrop-blur-sm shadow-md fixed top-16 left-0 w-full flex flex-col items-center gap-4 py-4 text-gray-700
+          transition-all duration-300 ease-in-out overflow-hidden z-50 
           ${menuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}
         `}
       >

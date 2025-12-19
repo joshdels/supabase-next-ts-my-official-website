@@ -25,15 +25,38 @@ export default function Contact() {
     }
   }, [showSuccess]);
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    // You would normally send your message here (API call, etc.)
 
-    // Show success popup
-    setShowSuccess(true);
+    const form = e.target as HTMLFormElement;
+    const formData = new FormData(form);
+    const data = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      message: formData.get("message"),
+    };
 
-    // Reset form if needed
-    (e.target as HTMLFormElement).reset();
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await res.json();
+
+      if (result.success) {
+        setShowSuccess(true);
+        form.reset();
+      } else {
+        alert("Error: "+ result.error)
+      }
+    } catch (error) {
+      console.error("Error sending message:", error);
+      alert("Something is worng. Please try again")
+    }
   }
 
   return (
