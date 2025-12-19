@@ -1,27 +1,62 @@
+"use client";
+
+import { useState } from "react";
+import { PanelTopClose, Menu } from "lucide-react";
+
 export default function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const menuItems = ["Home", "Services", "Demo", "Project", "About"];
+
   return (
     <>
       <div
-        className="
+        className={`
           flex bg-white/80 backdrop-blur-sm text-gray-800 items-center justify-between
           text-md border-b border-gray-200
           px-6 sm:px-10 md:px-20 lg:px-40 2xl:px-80
           py-4 fixed top-0 left-0 w-full z-50 shadow-2xs
-        "
+        `}
       >
         {/* Logo / Name */}
         <h1 className="font-bold text-xl md:text-xl tracking-wide cursor-pointer hover:text-gray-900 transition-colors duration-300">
           Joshdels
         </h1>
 
-        {/* Menu items */}
-        <div className="flex flex-row gap-2 sm:gap-2 md:gap-4 lg:gap-6 text-sm lg:text-md  text-gray-700">
-          <p className="cursor-pointer hover:text-gray-900 transition-colors duration-200">Home</p>
-          <p className="cursor-pointer hover:text-gray-900 transition-colors duration-200">Services</p>
-          <p className="cursor-pointer hover:text-gray-900 transition-colors duration-200">Demo</p>
-          <p className="cursor-pointer hover:text-gray-900 transition-colors duration-200">Project</p>
-          <p className="cursor-pointer hover:text-gray-900 transition-colors duration-200">About</p>
+        {/* Desktop menu */}
+        <div className="hidden md:flex gap-6 text-gray-700 text-sm lg:text-md">
+          {menuItems.map((item) => (
+            <p key={item} className="cursor-pointer hover:text-gray-900">
+              {item}
+            </p>
+          ))}
         </div>
+
+        {/* Mobile menu button */}
+        <div className="md:hidden">
+          <button onClick={() => setMenuOpen(!menuOpen)}>
+            {menuOpen ? <PanelTopClose /> : <Menu />}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile menu dropdown */}
+      <div
+        className={`
+          md:hidden bg-white shadow-md absolute top-16 left-0 w-full flex flex-col items-center gap-4 py-4 text-gray-700
+          transition-all duration-300 ease-in-out overflow-hidden
+          ${menuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}
+        `}
+      >
+        {menuItems.map((item) => (
+          <p
+            key={item}
+            className="cursor-pointer hover:text-gray-900 transition-colors duration-200"
+            onClick={() => setMenuOpen(false)} // close menu on click
+          >
+            {item}
+          </p>
+        ))}
       </div>
     </>
   );
