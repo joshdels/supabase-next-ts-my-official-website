@@ -56,6 +56,40 @@ export async function POST(req: Request) {
   return NextResponse.json({ success: true, data }, { status: 201 });
 }
 
+export async function PATCH(req: Request) {
+  try {
+    const { id, is_important, is_read } = await req.json();
+
+    if (!id) {
+      return NextResponse.json(
+        { sueccess: false, error: "Message ID is requred"},
+        { status: 400 }
+      )
+    }
+
+    const updateData: Record<string, boolean> = {}
+    if (typeof is_important === "boolean") updateData.is_important = is_important;
+    if (typeof is_read === "boolean") updateData.is_read = is_read;
+
+    const { data, error } = await supabase
+      .from("contact_messages")
+      .update(updateData)
+      .eq("ud", id)
+      .select()
+      .single();
+
+    if (error) {
+      console.error("PATCH /contact error:", error);
+      return NextResponse.json({ success: false, error: error.message }, { status: 500 });
+    }
+
+    return NextResponse.json({ success: true, data }, { status: 200 });
+  } catch (err) {
+    console.error(err);
+    return NextResponse.json({ success: false, error: "Something went wrong" }, { status: 500 });
+  }
+}
+
 export async function DELETE(req: Request) {
   const { id } = await req.json();
 
