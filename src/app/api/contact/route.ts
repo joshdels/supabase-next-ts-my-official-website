@@ -23,9 +23,9 @@ export async function GET() {
 }
 
 export async function POST(req: Request) {
-  const { name, email, message, country_id } = await req.json();
+  const { name, email, message, country_value } = await req.json();
 
-  if (!name || !email || !message || !country_id) {
+  if (!name || !email || !message || !country_value) {
     return NextResponse.json(
       {
         success: false,
@@ -37,7 +37,7 @@ export async function POST(req: Request) {
 
   const { data, error } = await supabase
     .from("contact_messages")
-    .insert([{ name, email, message, country_id }])
+    .insert([{ name, email, message, country_value }])
     .select()
     .single();
 
@@ -75,7 +75,7 @@ export async function PATCH(req: Request) {
     const { data, error } = await supabase
       .from("contact_messages")
       .update(updateData)
-      .eq("id", id)
+      .eq("ud", id)
       .select()
       .single();
 
@@ -110,7 +110,7 @@ export async function DELETE(req: Request) {
   const { error } = await supabase
     .from("contact_messages")
     .delete()
-    .eq("id", id);
+    .eq("ud", id);
 
   if (error) {
     console.error("DELETE /contact error:", error);

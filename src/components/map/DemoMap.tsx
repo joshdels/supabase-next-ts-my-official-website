@@ -34,7 +34,7 @@ export default function DemoMap() {
   return (
     <div
       ref={mapContainer}
-      className="w-full h-[500px] border border-gray-300 rounded-2xl hover:shadow-md"
+      className="w-full h-[82.5vh] border border-gray-300 rounded-2xl hover:shadow-md"
     />
   );
 }

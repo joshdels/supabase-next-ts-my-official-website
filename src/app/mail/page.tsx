@@ -1,12 +1,12 @@
 import Navbar from "@/src/components/layout/Navbar";
-import MailContent from "@/src/components/mail/Mail";
+import MailLayout from "@/src/components/layout/MailLayout";
 
 export default function Mail() {
   return (
     <>
     <div className="">
       <Navbar />
-      <MailContent />
+      <MailLayout />
     </div>
     </>
   );

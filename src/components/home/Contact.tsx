@@ -42,7 +42,7 @@ export default function Contact() {
       name: formData.get("name"),
       email: formData.get("email"),
       message: formData.get("message"),
-      country_id: formData.get("country_id"),
+      country_value: formData.get("country_value"),
     };
 
     try {
@@ -110,8 +110,8 @@ export default function Contact() {
             Country
           </label>
           <select
-            name="country_id"
-            id="country_id"
+            name="country_value"
+            id="country_value"
             required
             className="p-2 border border-gray-400 text-gray-400 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-gray-300"
           >
@@ -120,7 +120,7 @@ export default function Contact() {
             </option>
             {!loading &&
               countries.map((country: Country) => (
-                <option key={country.id} value={country.id}>
+                <option key={country.id} value={country.value}>
                   {country.value}
                 </option>
               ))}

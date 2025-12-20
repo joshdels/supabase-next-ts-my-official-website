@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { PanelTopClose, Menu } from "lucide-react";
+import Link from "next/link";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -20,7 +21,9 @@ export default function Navbar() {
       >
         {/* Logo / Name */}
         <h1 className="font-bold text-xl md:text-xl tracking-wide cursor-pointer hover:text-gray-900 transition-colors duration-300">
-          Joshdels
+          <Link href="/">
+            Joshdels
+          </Link>
         </h1>
 
         {/* Desktop menu */}
@@ -52,7 +55,7 @@ export default function Navbar() {
           <p
             key={item}
             className="cursor-pointer hover:text-gray-900 transition-colors duration-200"
-            onClick={() => setMenuOpen(false)} // close menu on click
+            onClick={() => setMenuOpen(false)}
           >
             {item}
           </p>
