@@ -1,15 +1,24 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import { useCountries } from "@/src/hooks/useCountries";
+
+interface Country {
+  id: number;
+  value: string;
+}
 
 export default function Contact() {
   const [showSuccess, setShowSuccess] = useState(false);
   const popupRef = useRef<HTMLDivElement | null>(null);
+  const { countries, loading } = useCountries();
 
-  // Handle click outside popup to hide it
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
-      if (popupRef.current && !popupRef.current.contains(event.target as Node)) {
+      if (
+        popupRef.current &&
+        !popupRef.current.contains(event.target as Node)
+      ) {
         setShowSuccess(false);
       }
     }
@@ -17,7 +26,6 @@ export default function Contact() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // Hide popup after 5 seconds automatically
   useEffect(() => {
     if (showSuccess) {
       const timer = setTimeout(() => setShowSuccess(false), 5000);
@@ -34,13 +42,14 @@ export default function Contact() {
       name: formData.get("name"),
       email: formData.get("email"),
       message: formData.get("message"),
+      country_id: formData.get("country_id"),
     };
 
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
       });
@@ -51,11 +60,11 @@ export default function Contact() {
         setShowSuccess(true);
         form.reset();
       } else {
-        alert("Error: "+ result.error)
+        alert("Error: " + result.error);
       }
     } catch (error) {
       console.error("Error sending message:", error);
-      alert("Something is worng. Please try again")
+      alert("Something is worng. Please try again");
     }
   }
 
@@ -64,11 +73,14 @@ export default function Contact() {
       <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
         <h1 className="text-3xl font-semibold mb-2">Get in Touch</h1>
         <p className="text-gray-700 mb-4">
-          Want to level up your enterprise to a full-fledged operation? I'm here to help!
+          Want to level up your enterprise to a full-fledged operation? I'm here
+          to help!
         </p>
 
         <div className="flex flex-col">
-          <label htmlFor="name" className="mb-1 font-medium">Name</label>
+          <label htmlFor="name" className="mb-1 font-medium">
+            Name
+          </label>
           <input
             id="name"
             name="name"
@@ -80,7 +92,9 @@ export default function Contact() {
         </div>
 
         <div className="flex flex-col">
-          <label htmlFor="email" className="mb-1 font-medium">Email</label>
+          <label htmlFor="email" className="mb-1 font-medium">
+            Email
+          </label>
           <input
             id="email"
             name="email"
@@ -92,7 +106,31 @@ export default function Contact() {
         </div>
 
         <div className="flex flex-col">
-          <label htmlFor="message" className="mb-1 font-medium">Message</label>
+          <label htmlFor="email" className="mb-1 font-medium">
+            Country
+          </label>
+          <select
+            name="country_id"
+            id="country_id"
+            required
+            className="p-2 border border-gray-400 text-gray-400 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-gray-300"
+          >
+            <option value="" disabled>
+              {loading ? "Loading..." : "Select a country"}
+            </option>
+            {!loading &&
+              countries.map((country: Country) => (
+                <option key={country.id} value={country.id}>
+                  {country.value}
+                </option>
+              ))}
+          </select>
+        </div>
+
+        <div className="flex flex-col">
+          <label htmlFor="message" className="mb-1 font-medium">
+            Message
+          </label>
           <textarea
             id="message"
             name="message"
@@ -117,30 +155,9 @@ export default function Contact() {
           ref={popupRef}
           className="absolute top-5 right-5 bg-gray-500 text-white px-4 py-2 rounded-md shadow-sm animate-fadeIn"
         >
-          Message sent successfully!
+          Message sent successfully! Please wait in your email for 24hrs
         </div>
       )}
-
-      {/* Tailwind keyframes for fadeIn */}
-      <style jsx>{`
-        .animate-fadeIn {
-          animation: fadeIn 0.3s ease-in-out forwards;
-        }
-
-        .animate-fadeOut {
-          animation: fadeOut 0.3s ease-in-out forwards;
-        }
-
-        @keyframes fadeIn {
-          from { opacity: 0; transform: translateY(-10px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeOut {
-          from { opacity: 1; transform: translateY(0); }
-          to { opacity: 0; transform: translateY(-10px); }
-        }
-      `}</style>
     </div>
   );
 }

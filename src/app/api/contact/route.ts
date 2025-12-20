@@ -23,9 +23,9 @@ export async function GET() {
 }
 
 export async function POST(req: Request) {
-  const { name, email, message } = await req.json();
+  const { name, email, message, country_id } = await req.json();
 
-  if (!name || !email || !message) {
+  if (!name || !email || !message || !country_id) {
     return NextResponse.json(
       {
         success: false,
@@ -37,7 +37,7 @@ export async function POST(req: Request) {
 
   const { data, error } = await supabase
     .from("contact_messages")
-    .insert([{ name, email, message }])
+    .insert([{ name, email, message, country_id }])
     .select()
     .single();
 
@@ -62,13 +62,14 @@ export async function PATCH(req: Request) {
 
     if (!id) {
       return NextResponse.json(
-        { sueccess: false, error: "Message ID is requred"},
+        { success: false, error: "Message ID is requred" },
         { status: 400 }
-      )
+      );
     }
 
-    const updateData: Record<string, boolean> = {}
-    if (typeof is_important === "boolean") updateData.is_important = is_important;
+    const updateData: Record<string, boolean> = {};
+    if (typeof is_important === "boolean")
+      updateData.is_important = is_important;
     if (typeof is_read === "boolean") updateData.is_read = is_read;
 
     const { data, error } = await supabase
@@ -80,13 +81,19 @@ export async function PATCH(req: Request) {
 
     if (error) {
       console.error("PATCH /contact error:", error);
-      return NextResponse.json({ success: false, error: error.message }, { status: 500 });
+      return NextResponse.json(
+        { success: false, error: error.message },
+        { status: 500 }
+      );
     }
 
     return NextResponse.json({ success: true, data }, { status: 200 });
   } catch (err) {
     console.error(err);
-    return NextResponse.json({ success: false, error: "Something went wrong" }, { status: 500 });
+    return NextResponse.json(
+      { success: false, error: "Something went wrong" },
+      { status: 500 }
+    );
   }
 }
 

@@ -117,43 +117,62 @@ export default function MailContent() {
   };
 
   return (
-    <div className="p-2 mt-20">
+    <div className="p-3 mt-20">
       <h1 className="text-2xl font-bold mb-4">Mailbox</h1>
 
-      <ul className="space-y-1">
-        {messages.map((m) => (
-          <li
-            key={m.ud}
-            className="bg-white p-4 rounded flex gap-2 items-start"
-          >
-            <input
-              type="checkbox"
-              className="cursor-pointer w-5 h-5"
-              checked={m.is_read || false}
-              onChange={() => toggleRead(m.ud, m.is_read || false)}
-            />
-
-            <button
-              className={`cursor-pointer text-xl select-none ${
-                m.is_important ? "text-yellow-400" : "text-gray-300"
+      <table className="w-full table-auto border-collapse">
+        <thead>
+          <tr className="bg-gray-100 text-left">
+            <th className="p-2 w-12">Read</th>
+            <th className="p-2 w-12">Important</th>
+            <th className="p-2">From</th>
+            <th className="p-2">Message</th>
+            <th className="p-2 w-32">Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          {messages.map((m) => (
+            <tr
+              key={m.ud}
+              className={`hover:bg-gray-50 border-b border-gray-300 ${
+                !m.is_read ? "font-semibold bg-gray-50" : "bg-white"
               }`}
-              onClick={() => toggleImportant(m.ud, m.is_important || false)}
             >
-              ★
-            </button>
-
-            {/* Date */}
-            <p className="ml-4">{m.message}</p>
-
-            <p className="text-gray-400">
-              {new Date(m.created_at).toLocaleDateString("en-US", {
-                month: "short",
-                day: "numeric",
-              })}
-            </p>
-          </li>
-        ))}
-      </ul>
+              <td className="p-2 text-center">
+                <input
+                  type="checkbox"
+                  className="cursor-pointer w-5 h-5"
+                  checked={m.is_read || false}
+                  onChange={() => toggleRead(m.ud, m.is_read || false)}
+                />
+              </td>
+              <td className="p-2 text-center">
+                <button
+                  className={`cursor-pointer text-xl select-none ${
+                    m.is_important ? "text-yellow-400" : "text-gray-300"
+                  }`}
+                  onClick={() => toggleImportant(m.ud, m.is_important || false)}
+                >
+                  ★
+                </button>
+              </td>
+              <td className="p-2">
+                <div className="flex flex-col">
+                  <span>{m.name}</span>
+                  <span className="text-gray-400 text-sm">{m.email}</span>
+                </div>
+              </td>
+              <td className="p-2">{m.message}</td>
+              <td className="p-2 text-gray-400">
+                {new Date(m.created_at).toLocaleDateString("en-US", {
+                  month: "short",
+                  day: "numeric",
+                })}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }
