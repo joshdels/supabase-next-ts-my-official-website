@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { supabase } from "../lib/supabase.Client";
+import { supabase } from "../lib/supabaseClient";
 
 export interface Country {
   id: number;
