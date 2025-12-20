@@ -1,27 +1,10 @@
-"use client"
+"use client";
 
 import { useState, useEffect } from "react";
-import { supabase } from "../lib/supabaseClient";
 
 export interface Country {
   id: number;
   value: string;
-}
-
-export async function fetchCountries(): Promise<Country[]> {
-  try {
-    const { data, error } = await supabase.from("countries").select("*");
-
-    if (error) {
-      console.error("Error fetching countries:", error);
-      return [];
-    }
-
-    return data || [];
-  } catch (err) {
-    console.error("Unexpected error fetching countries:", err);
-    return [];
-  }
 }
 
 export function useCountries() {
@@ -30,9 +13,20 @@ export function useCountries() {
 
   useEffect(() => {
     async function load() {
-      const data = await fetchCountries();
-      setCountries(data);
-      setLoading(false);
+      try {
+        const res = await fetch("/api/countries");
+
+        if (!res.ok) {
+          throw new Error("Failed to fetch countries");
+        }
+
+        const data: Country[] = await res.json();
+        setCountries(data);
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
     }
     load();
   }, []);
