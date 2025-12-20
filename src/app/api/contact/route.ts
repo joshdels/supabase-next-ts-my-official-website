@@ -75,7 +75,7 @@ export async function PATCH(req: Request) {
     const { data, error } = await supabase
       .from("contact_messages")
       .update(updateData)
-      .eq("ud", id)
+      .eq("id", id)
       .select()
       .single();
 
