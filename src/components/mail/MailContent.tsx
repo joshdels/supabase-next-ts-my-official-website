@@ -93,7 +93,7 @@ export default function MailContent() {
     <div className="max-w-6xl mx-auto bg">
       <h1 className="text-2xl font-bold mb-6">Mailbox</h1>
 
-      <div className="bg-red-500 shadow-sm rounded-md divide-y divide-gray-200">
+      <div className="bg-gray-50 shadow-sm rounded-md divide-y divide-gray-200">
         {messages.map((m) => (
           <div
             key={m.ud}

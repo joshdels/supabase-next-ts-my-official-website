@@ -6,7 +6,7 @@ import { Github, Linkedin, FileUser} from "lucide-react";
 export default function About() {
   return(
     <>
-      <div className="mb-15">
+      <div className="mb-10">
         <h1 className="text-3xl font-semibold mb-5">About me</h1>
 
         <p className="mb-5">
