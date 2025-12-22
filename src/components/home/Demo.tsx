@@ -1,4 +1,4 @@
-import DemoMap from "../map/MailMap";
+import DemoMap from "@/src/features/map/MailMap";
 
 export default function Demo() {
   return (

@@ -1,4 +1,4 @@
-import Map from "../map/Map";
+import Map from "@/src/features/map/Map";
 
 export default function Hero() {
   return (

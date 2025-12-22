@@ -12,19 +12,36 @@ export default function DemoMap() {
     if (!mapContainer.current || mapRef.current) return;
 
     // this sets the actual DOM
-    mapRef.current = new maplibregl.Map({
-      container: mapContainer.current, 
+    const map = new maplibregl.Map({
+      container: mapContainer.current,
       style: "https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json",
       center: [0, 0],
       zoom: 1,
     });
 
-    mapRef.current.addControl(new maplibregl.NavigationControl({ showCompass: true, showZoom: true }), "top-right");
-    
-    new maplibregl.Marker({ color: "#FF5722" })
-      .setLngLat([120.982, 14.6042])
-      .setPopup(new maplibregl.Popup({ offset: 25 }).setText("Hello! This is your demo marker."))
-      .addTo(mapRef.current);
+    mapRef.current = map;
+
+    mapRef.current.addControl(
+      new maplibregl.NavigationControl({ showCompass: true, showZoom: true }),
+      "top-right"
+    );
+
+    map.on("load", () => {
+      map.addSource("world-id", {
+        type: "geojson",
+        data: "data/world_clean.geojson",
+      });
+
+      map.addLayer({
+        id: "world-fill",
+        type: "fill",
+        source: "world-id",
+        paint: {
+          "fill-color": "white",
+          "fill-opacity": 0.1
+        }
+      })
+    });
 
     return () => {
       mapRef.current?.remove();

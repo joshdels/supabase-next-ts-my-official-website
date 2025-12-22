@@ -1,5 +1,5 @@
-import MailContent from "../mail/MailContent";
-import DemoMap from "../map/MailMap";
+import MailContent from "../../features/mail/MailContent";
+import DemoMap from "@/src/features/map/MailMap";
 
 export default function MailLayout() {
   return (

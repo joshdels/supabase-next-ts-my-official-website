@@ -1,6 +1,6 @@
 import Hero from "../home/HeroSection"
 import Demo from "../home/Demo"
-import Project from "../home/Project"
+import Project from "@/src/features/projects/Project"
 import Results from "../home/Results"
 import Testimonial from "../home/Testimonial"
 
