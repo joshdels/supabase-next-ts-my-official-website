@@ -123,6 +123,7 @@ export default function Map() {
     });
 
     const map = mapRef.current;
+    if (!map) return;
 
     /**
      * Load buildings and add/update the 3D extrusion layer
@@ -154,7 +155,7 @@ export default function Map() {
 
         const geojson = await fetchBuildings(bbox);
 
-        const source = mapRef.current.getSource("buildings") as maplibregl.GeoJSONSource;
+        let source = mapRef.current.getSource("buildings") as maplibregl.GeoJSONSource | undefined;
         if (source) {
           source.setData(geojson);
         } else {

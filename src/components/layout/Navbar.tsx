@@ -5,35 +5,20 @@ import { PanelTopClose, Menu } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { supabase } from "@/src/lib/supabaseClient";
+import { useAuth } from "@/src/hooks/useAuth";
 
 export default function Navbar() {
   const router = useRouter();
-  const [user, setUser] = useState<any>(null);
   const [menuOpen, setMenuOpen] = useState(false);
+  const { user } = useAuth();
 
   const menuItems = ["Home", "Services", "Demo", "Project", "About"];
-
-  useEffect(() => {
-    const getUser = async () => {
-      const { data } = await supabase.auth.getUser();
-      setUser(data.user);
-    };
-    getUser();
-
-    const { data: listener } = supabase.auth.onAuthStateChange(
-      (_event, session) => {
-        setUser(session?.user ?? null);
-      }
-    );
-
-    return () => listener.subscription.unsubscribe();
-  }, []);
 
   const logout = async () => {
     const { error } = await supabase.auth.signOut();
     if (error) alert(error.message);
     else {
-      setUser(null);
+      router.refresh();
       router.push("/");
     }
   };

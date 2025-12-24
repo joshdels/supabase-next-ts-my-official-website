@@ -1,6 +1,11 @@
+"use client"
+
 import Map from "@/src/features/map/Map";
+import { usePathname } from "next/navigation";
 
 export default function Hero() {
+  const pathname = usePathname();
+  
   return (
     <>
       <div className="flex flex-col lg:flex-row gap-20 xl:gap-20 lg:pt-10 pb-5">
@@ -20,7 +25,7 @@ export default function Hero() {
         </div>
 
         <div className="lg:flex-1">
-          <Map />
+          <Map key={pathname}/>
         </div>
       </div>
     </>
