@@ -4,7 +4,8 @@ import { useEffect, useRef } from "react";
 import maplibregl from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 import { useCountRespondents } from "@/src/hooks/useCountRespondents";
-import { FeatureCollection, Geometry } from "geojson";
+import { FeatureCollection, Point, Feature } from "geojson";
+import { centroid } from "@turf/turf";
 
 interface CountryProperties {
   country_value: string;
@@ -22,7 +23,8 @@ export default function DemoMap() {
     if (!mapRef.current) {
       mapRef.current = new maplibregl.Map({
         container: mapContainer.current,
-        style: "https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json",
+        style:
+          "https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json",
         center: [0, 0],
         zoom: 1,
       });
@@ -37,53 +39,96 @@ export default function DemoMap() {
     if (!map) return;
 
     const updateMap = async () => {
-      if (!respondentCount.length) return; 
+      if (!respondentCount.length) return;
 
-      const res = await fetch("/data/world_clean.geojson"); 
-      const geojson: FeatureCollection<Geometry, CountryProperties> = await res.json();
-      
+      const res = await fetch("/data/world_clean.geojson");
+      const geojson: FeatureCollection = await res.json();
 
       const countByCountry: Record<string, number> = {};
-      respondentCount.forEach(r => {
+      respondentCount.forEach((r) => {
         countByCountry[r.country_value] = r.respondents_count;
       });
 
-      const joinedGeoJSON: FeatureCollection<Geometry, CountryProperties> = {
+      const centroids: FeatureCollection<Point, CountryProperties> = {
         type: "FeatureCollection",
-        features: geojson.features.map(f => ({
-          ...f,
-          properties: {
-            ...f.properties,
-            count: countByCountry[f.properties.country_value] ?? 0,
-          },
-        })),
+        features: geojson.features
+          .map((f: Feature<any>) => {
+            // safely access country_value
+            const countryValue = f.properties?.country_value ?? "Unknown";
+            const count = countByCountry[countryValue] ?? 0;
+            const c = centroid(f);
+            return {
+              type: "Feature" as const,
+              geometry: c.geometry,
+              properties: {
+                country_value: countryValue,
+                count,
+              },
+            };
+          })
+          .filter((f) => f.properties?.count && f.properties.count > 0),
       };
 
-      if (map.getSource("world-id")) {
-        (map.getSource("world-id") as maplibregl.GeoJSONSource).setData(joinedGeoJSON);
+      const bounds = new maplibregl.LngLatBounds();
+
+      centroids.features.forEach((f) => {
+        bounds.extend(f.geometry.coordinates as [number, number]);
+      });
+
+      if (!bounds.isEmpty()) {
+        map.fitBounds(bounds, {
+          padding: 100,
+          maxZoom: 6,
+          duration: 800,
+        });
+      }
+
+      if (map.getSource("world-centroids")) {
+        (map.getSource("world-centroids") as maplibregl.GeoJSONSource).setData(
+          centroids
+        );
       } else {
-        map.addSource("world-id", {
+        map.addSource("world-centroids", {
           type: "geojson",
-          data: joinedGeoJSON,
+          data: centroids,
         });
 
         map.addLayer({
-          id: "world-fill",
-          type: "fill",
-          source: "world-id",
+          id: "world-circles",
+          type: "circle",
+          source: "world-centroids",
           paint: {
-            "fill-color": [
+            "circle-radius": [
               "interpolate",
               ["linear"],
               ["get", "count"],
-              0,
-              "red",
               1,
-              "yellow",
+              3,
               5,
-              "blue",
+              10,
+              20,
+              25,
             ],
-            "fill-opacity": 0.75,
+            "circle-color": [
+              "interpolate",
+              ["linear"],
+              ["get", "count"],
+              1,
+              "#eeeeee",
+              2,
+              "#74add1",
+              5,
+              "#abd9e9",
+              10,
+              "#ffffbf",
+              20,
+              "#fdae61",
+              50,
+              "#d7191c",
+            ],
+            "circle-stroke-color": "#ffffff",
+            "circle-stroke-width": 0.5,
+            "circle-opacity": 0.8,
           },
         });
       }
@@ -91,6 +136,7 @@ export default function DemoMap() {
 
     updateMap();
   }, [respondentCount]);
+
   return (
     <div
       ref={mapContainer}
