@@ -61,7 +61,7 @@ export default function Project() {
   );
 
   return (
-    <div className="mt-16">
+    <div className="mt-16 pb-20">
       <h1 className="font-bold text-3xl mb-3">Projects</h1>
       <p className="mb-8 text-gray-600">
         How I solved different problems in each project
