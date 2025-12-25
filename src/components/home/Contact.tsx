@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import { useCountries } from "@/src/hooks/useCountries";
 import { Mail, Linkedin, Github, Calendar } from "lucide-react";
+import Success from "../ui/modals/Success";
 
 interface Country {
   id: number;
@@ -16,7 +17,10 @@ export default function Contact() {
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
-      if (popupRef.current && !popupRef.current.contains(event.target as Node)) {
+      if (
+        popupRef.current &&
+        !popupRef.current.contains(event.target as Node)
+      ) {
         setShowSuccess(false);
       }
     }
@@ -63,18 +67,22 @@ export default function Contact() {
   }
 
   return (
-    <div className="border border-gray-200 rounded-xl p-6 bg-white shadow-sm">
+    <div className="border border-gray-200 rounded-xl p-10 bg-white shadow-sm">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Left: Form */}
         <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
-          <h1 className="text-3xl font-semibold mb-2 text-gray-900">Get in Touch</h1>
+          <h1 className="text-3xl font-semibold mb-2 text-gray-900">
+            Get in Touch
+          </h1>
           <p className="text-gray-600 mb-4">
-            Have a real estate or GIS challenge? Let’s talk about how spatial data
-            can help you level up your operations.
+            Have a real estate or GIS challenge? Let’s talk about how spatial
+            data can help you level up your operations.
           </p>
 
           <div className="flex flex-col">
-            <label htmlFor="name" className="mb-1 font-medium text-gray-700">Name</label>
+            <label htmlFor="name" className="mb-1 font-medium text-gray-700">
+              Name
+            </label>
             <input
               id="name"
               name="name"
@@ -86,7 +94,9 @@ export default function Contact() {
           </div>
 
           <div className="flex flex-col">
-            <label htmlFor="email" className="mb-1 font-medium text-gray-700">Email</label>
+            <label htmlFor="email" className="mb-1 font-medium text-gray-700">
+              Email
+            </label>
             <input
               id="email"
               name="email"
@@ -98,12 +108,18 @@ export default function Contact() {
           </div>
 
           <div className="flex flex-col">
-            <label htmlFor="country_value" className="mb-1 font-medium text-gray-700">Country</label>
+            <label
+              htmlFor="country_value"
+              className="mb-1 font-medium text-gray-700"
+            >
+              Country
+            </label>
             <select
               name="country_value"
               id="country_value"
-              required
+              defaultValue=""
               className="p-2 border border-gray-300 text-gray-600 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-gray-200"
+              required
             >
               <option value="" disabled>
                 {loading ? "Loading..." : "Select a country"}
@@ -118,7 +134,9 @@ export default function Contact() {
           </div>
 
           <div className="flex flex-col">
-            <label htmlFor="message" className="mb-1 font-medium text-gray-700">Message</label>
+            <label htmlFor="message" className="mb-1 font-medium text-gray-700">
+              Message
+            </label>
             <textarea
               id="message"
               name="message"
@@ -139,14 +157,10 @@ export default function Contact() {
 
         {/* Right: Direct Contact Buttons */}
         <div className="flex flex-col justify-center">
-          <p className="text-gray-600 mb-4 font-medium">Or reach me directly via:</p>
+          <p className="text-gray-600 mb-4 font-medium">
+            Or reach me directly via:
+          </p>
           <div className="flex flex-col gap-3">
-            <a
-              href="mailto:youremail@example.com"
-              className="border border-gray-300 hover:bg-gray-100 text-gray-800 px-4 py-2 rounded-md flex items-center gap-2 transition-colors"
-            >
-              <Mail size={18} /> Email Me
-            </a>
             <a
               href="https://www.linkedin.com/in/joshua-de-leon-8b0310301/"
               target="_blank"
@@ -174,11 +188,8 @@ export default function Contact() {
 
       {/* Success popup */}
       {showSuccess && (
-        <div
-          ref={popupRef}
-          className="absolute top-5 right-5 bg-gray-800 text-white px-4 py-2 rounded-md shadow-sm animate-fadeIn"
-        >
-          Message sent successfully! Please check your email within 24hrs
+        <div>
+          <Success />
         </div>
       )}
     </div>

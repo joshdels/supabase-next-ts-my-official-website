@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import Navbar from "@/src/components/layout/Navbar";
 import MailLayout from "@/src/components/layout/MailLayout";
 import { supabase } from "@/src/lib/supabaseClient";
+import Loading from "@/src/components/ui/modals/Loading";
 
 export default function Mail() {
   const router = useRouter();
@@ -30,7 +31,7 @@ export default function Mail() {
   }, [router]);
 
   if (loading) {
-    return <p>Loading...</p>;
+    return <Loading />;
   }
 
   return (

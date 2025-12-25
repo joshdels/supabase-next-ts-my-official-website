@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { PanelTopClose, Menu } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -12,7 +12,7 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const { user } = useAuth();
 
-  const menuItems = ["Home", "Services", "Demo", "Project", "About"];
+  const menuItems = ["Home", "Services", "Project", "About"];
 
   const logout = async () => {
     const { error } = await supabase.auth.signOut();
@@ -28,7 +28,7 @@ export default function Navbar() {
       <div className="flex bg-white/80 backdrop-blur-sm text-gray-800 items-center justify-between text-md border-b border-gray-200 px-6 sm:px-5 md:px-20 lg:px-20 2xl:px-40 py-4 fixed top-0 left-0 w-full z-50 shadow-2xs">
         {/* Logo */}
         <h1 className="font-bold text-xl md:text-xl tracking-wide cursor-pointer hover:text-gray-900 transition-colors duration-300">
-          <Link href="/">Joshdels</Link>
+          <Link href="/">JoshDels</Link>
         </h1>
 
         {/* Desktop menu */}
@@ -51,7 +51,7 @@ export default function Navbar() {
               href="/login"
               className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600"
             >
-              Login
+              Mail
             </Link>
           )}
         </div>
@@ -91,11 +91,11 @@ export default function Navbar() {
           </button>
         ) : (
           <Link
-            href="/"
+            href="/login"
             className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600"
             onClick={() => setMenuOpen(false)}
           >
-            Login
+            Mail
           </Link>
         )}
       </div>

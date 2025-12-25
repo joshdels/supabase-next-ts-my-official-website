@@ -25,6 +25,8 @@ https://supabase.com/docs/guides/getting-started/quickstarts/nextjs
 ```
 NEXT_PUBLIC_SUPABASE_URL="YOUR SUPABASE URL"
 NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY = "YOUR SUPABASE KEY""
+SUPABASE_URL="KEY"
+SUPABASE_ANON_KEY="KEY"
 ```
 
 ### Install the neccessary and run after

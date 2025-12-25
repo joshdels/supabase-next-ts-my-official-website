@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { supabase } from "@/src/lib/supabaseClient";
 import type { User } from "@supabase/supabase-js";
+import Link from "next/link";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -48,11 +49,20 @@ export default function LoginPage() {
   }, [user, router]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="w-full max-w-md bg-white rounded-2xl shadow-sm p-8">
-        <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
+    <div
+      className="min-h-screen flex items-center justify-center bg-gray-100 bg-cover bg-center"
+      style={{ backgroundImage: "url('/roads_blue.webp')" }}
+    >
+      <div className="absolute inset-0 bg-black/60"></div>
+
+      <div className="w-full max-w-100 bg-white rounded-2xl shadow-sm p-8 z-50">
+        <h2 className="text-2xl font-bold text-center text-gray-800">
           Hey JoshDels!
         </h2>
+
+        <p className="text-center text-sm text-gray-500 p-2">
+          Geospatial Developer Mail
+        </p>
 
         <div className="space-y-4">
           <input
@@ -79,8 +89,10 @@ export default function LoginPage() {
           </button>
         </div>
 
-        <p className="text-center text-sm text-gray-500 mt-6">
-          my mail, i'll map
+        <p className="text-center text-sm text-gray-400 mt-2">
+          <Link href="/" className="hover:underline">
+            Back to Homepage
+          </Link>
         </p>
       </div>
     </div>

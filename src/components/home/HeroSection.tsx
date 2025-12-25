@@ -1,10 +1,13 @@
 "use client";
 
 import Map from "@/src/features/map/Map";
+import { useState } from "react";
 import { usePathname } from "next/navigation";
+import ContactModal from "../ui/modals/Contact";
 
 export default function Hero() {
   const pathname = usePathname();
+  const [showContact, setShowContact] = useState(false);
 
   return (
     <>
@@ -17,7 +20,7 @@ export default function Hero() {
           </h1>
 
           <p className="mt-4 text-gray-700 leading-relaxed">
-            Hi! I’m a developer specializing in modern geospatial solutions that
+            Hi! I'm a developer specializing in modern geospatial solutions that
             turn your data into real operational advantages. I help businesses
             and organizations improve planning, decision-making, and day-to-day
             operations through mapping, analytics, and location-driven insights.
@@ -25,12 +28,13 @@ export default function Hero() {
 
           <div className="mt-8 flex flex-wrap gap-4">
             <button
+              onClick={() => setShowContact(true)}
               className="px-6 py-3 rounded-lg bg-blue-600 text-white font-medium shadow-md
                        hover:bg-blue-700 transition duration-200 ease-in-out
                        cursor-pointer
                        "
             >
-              Let's Talk
+              Let's Talka
             </button>
 
             <button
@@ -49,6 +53,8 @@ export default function Hero() {
           <Map key={pathname} />
         </div>
       </div>
+
+      {showContact && <ContactModal />}
     </>
   );
 }
