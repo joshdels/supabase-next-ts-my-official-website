@@ -34,7 +34,7 @@ export default function Hero() {
                        cursor-pointer
                        "
             >
-              Let's Talka
+              Let's Talk
             </button>
 
             <button
