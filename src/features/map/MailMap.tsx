@@ -17,6 +17,10 @@ export default function DemoMap() {
   const mapRef = useRef<maplibregl.Map | null>(null);
   const { respondentCount } = useCountRespondents();
 
+  const topFive = [...respondentCount]
+    .sort((a, b) => b.respondents_count - a.respondents_count)
+    .slice(0, 5);
+
   useEffect(() => {
     if (!mapContainer.current) return;
 
@@ -27,10 +31,16 @@ export default function DemoMap() {
           "https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json",
         center: [0, 0],
         zoom: 1,
+        minZoom: 1,
+        maxZoom: 3,
+        attributionControl: false,
       });
 
       mapRef.current.addControl(
-        new maplibregl.NavigationControl({ showCompass: true, showZoom: true }),
+        new maplibregl.NavigationControl({
+          showCompass: false,
+          showZoom: true,
+        }),
         "top-right"
       );
     }
@@ -138,9 +148,41 @@ export default function DemoMap() {
   }, [respondentCount]);
 
   return (
-    <div
-      ref={mapContainer}
-      className="w-full h-[82.5vh] border border-gray-300 rounded-2xl hover:shadow-md"
-    />
+    <div className="relative w-full h-[82.5vh]">
+      {/* Map container */}
+      <div
+        ref={mapContainer}
+        className="w-full h-full border border-gray-300 rounded-2xl hover:shadow-md"
+      />
+
+      {/* Bottom-right legend */}
+      {topFive.length > 0 && (
+        <div className="absolute bottom-4 left-4 z-50 w-50 rounded-xl bg-white backdrop-blur-md shadow-lg border border-gray-200 p-4">
+          <h4 className="font-semibold text-gray-800 text-center mb-3">
+            Top Respondents
+          </h4>
+          <ul className="space-y-2">
+            {topFive.map((item, index) => (
+              <li
+                key={item.country_value}
+                className="flex items-center justify-between text-sm"
+              >
+                <div className="flex items-center gap-2 min-w-0">
+                  <span className="flex items-center justify-center text-xs font-semibold text-gray-700">
+                    {index + 1}
+                  </span>
+                  <span className="truncate text-gray-800">
+                    {item.country_value}
+                  </span>
+                </div>
+                <span className="ml-3 px-2 py-0.5 text-xs font-medium text-gray-700">
+                  {item.respondents_count}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
   );
 }

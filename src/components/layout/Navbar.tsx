@@ -41,7 +41,7 @@ export default function Navbar() {
 
           {user ? (
             <button
-              className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600"
+              className="bg-gray-700 text-white px-3 py-1 rounded hover:bg-gray-800"
               onClick={logout}
             >
               Logout
@@ -81,7 +81,7 @@ export default function Navbar() {
 
         {user ? (
           <button
-            className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600"
+            className="bg-gray-700 text-white px-3 py-1 rounded hover:bg-gray-800"
             onClick={() => {
               logout();
               setMenuOpen(false);

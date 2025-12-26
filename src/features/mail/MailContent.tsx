@@ -97,12 +97,12 @@ export default function MailContent() {
     <div className="max-w-6xl mx-auto">
       <h1 className="text-2xl font-bold mb-6">Mailbox</h1>
 
-      <div className="bg-gray-50 shadow-sm rounded-md divide-y divide-gray-200">
+      <div className="shadow-sm rounded-md divide-y divide-gray-200">
         {currentItems.map((m) => (
           <div
             key={m.ud}
             className={`flex items-center px-4 py-3 hover:bg-gray-100 transition-colors ${
-              !m.is_read ? "bg-gray-50 font-semibold" : ""
+              m.is_read ? "bg-gray-100" : "bg-white font-semibold"
             }`}
           >
             <input

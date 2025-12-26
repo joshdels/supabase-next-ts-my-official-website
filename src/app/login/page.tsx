@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { supabase } from "@/src/lib/supabaseClient";
 import type { User } from "@supabase/supabase-js";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -40,10 +41,14 @@ export default function LoginPage() {
   }, [user, router]);
 
   return (
-    <div
-      className="min-h-screen flex items-center justify-center bg-gray-100 bg-cover bg-center"
-      style={{ backgroundImage: "url('/roads.png')" }}
-    >
+    <div className="relative min-h-screen flex items-center justify-center bg-gray-100 bg-cover bg-center">
+      <Image
+        src="/roads.png"
+        alt="Background"
+        fill
+        className="object-cover"
+        priority
+      />
       <div className="absolute inset-0 bg-black/60"></div>
 
       <div className="w-full max-w-100 bg-white rounded-2xl shadow-sm p-8 z-50">
@@ -73,7 +78,7 @@ export default function LoginPage() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             onKeyDown={(e) => {
-              if (e.key === "Enter") login()
+              if (e.key === "Enter") login();
             }}
             className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent"
           />

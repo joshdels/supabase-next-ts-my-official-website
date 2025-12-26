@@ -51,19 +51,21 @@ export default function Map() {
     // Map OSM elements to GeoJSON features
     const features: Feature<Polygon>[] = data.elements
       .filter((el: any) => el.type === "way" && el.geometry)
-      .map((el: any): Feature<Polygon> => ({
-        type: "Feature",
-        geometry: {
-          type: "Polygon",
-          coordinates: [el.geometry.map((p: any) => [p.lon, p.lat])],
-        },
-        properties: {
-          height: el.tags?.height ? Number(el.tags.height) : null,
-          levels: el.tags?.["building:levels"]
-            ? Number(el.tags["building:levels"])
-            : null,
-        },
-      }));
+      .map(
+        (el: any): Feature<Polygon> => ({
+          type: "Feature",
+          geometry: {
+            type: "Polygon",
+            coordinates: [el.geometry.map((p: any) => [p.lon, p.lat])],
+          },
+          properties: {
+            height: el.tags?.height ? Number(el.tags.height) : null,
+            levels: el.tags?.["building:levels"]
+              ? Number(el.tags["building:levels"])
+              : null,
+          },
+        })
+      );
 
     return { type: "FeatureCollection", features };
   }
@@ -91,8 +93,8 @@ export default function Map() {
         mapRef.current?.flyTo({
           center: [parseFloat(lon), parseFloat(lat)],
           zoom: 16,
-          speed: 1.5,      // slower = calmer
-          curve: 1,        // gentler flight arc
+          speed: 1.5, // slower = calmer
+          curve: 1, // gentler flight arc
           essential: true,
         });
       } else {
@@ -113,14 +115,19 @@ export default function Map() {
     // Initialize MapLibre map
     mapRef.current = new maplibregl.Map({
       container: mapContainer.current,
-      style: "https://basemaps.cartocdn.com/gl/positron-nolabels-gl-style/style.json", // grayscale no-label basemap
-      center: [120.9842, 14.5995], // Manila
+      style:
+        "https://basemaps.cartocdn.com/gl/positron-nolabels-gl-style/style.json",
+      center: [120.9842, 14.5995],
       zoom: 16,
-      // minZoom: 15,
       pitch: 45,
       bearing: -17.6,
       attributionControl: false,
     });
+
+    mapRef.current.addControl(
+      new maplibregl.NavigationControl({ showCompass: true, showZoom: true }),
+      "top-right"
+    );
 
     const map = mapRef.current;
     if (!map) return;
@@ -155,11 +162,16 @@ export default function Map() {
 
         const geojson = await fetchBuildings(bbox);
 
-        let source = mapRef.current.getSource("buildings") as maplibregl.GeoJSONSource | undefined;
+        let source = mapRef.current.getSource("buildings") as
+          | maplibregl.GeoJSONSource
+          | undefined;
         if (source) {
           source.setData(geojson);
         } else {
-          mapRef.current.addSource("buildings", { type: "geojson", data: geojson });
+          mapRef.current.addSource("buildings", {
+            type: "geojson",
+            data: geojson,
+          });
           mapRef.current.addLayer({
             id: "3d-buildings",
             type: "fill-extrusion",
@@ -168,14 +180,27 @@ export default function Map() {
               "fill-extrusion-color": [
                 "interpolate",
                 ["linear"],
-                ["coalesce", ["get", "height"], ["*", ["coalesce", ["get", "levels"], 1], 3]],
-                0, "#e9edf4",
-                3, "#cdd6e4",
-                8, "#9fb2cf",
-                20, "#5f7fb3",
-                30, "#1e3f73",
+                [
+                  "coalesce",
+                  ["get", "height"],
+                  ["*", ["coalesce", ["get", "levels"], 1], 3],
+                ],
+                0,
+                "#e9edf4",
+                3,
+                "#cdd6e4",
+                8,
+                "#9fb2cf",
+                20,
+                "#5f7fb3",
+                30,
+                "#1e3f73",
               ],
-              "fill-extrusion-height": ["coalesce", ["get", "height"], ["*", ["coalesce", ["get", "levels"], 1], 3]],
+              "fill-extrusion-height": [
+                "coalesce",
+                ["get", "height"],
+                ["*", ["coalesce", ["get", "levels"], 1], 3],
+              ],
               "fill-extrusion-base": 0,
               "fill-extrusion-opacity": 0.9,
             },
@@ -217,7 +242,11 @@ export default function Map() {
 
       if (mapRef.current.getLayer("3d-buildings")) {
         // Collapse extrusion height to 0 in 2D
-        mapRef.current.setPaintProperty("3d-buildings", "fill-extrusion-height", 0);
+        mapRef.current.setPaintProperty(
+          "3d-buildings",
+          "fill-extrusion-height",
+          0
+        );
       }
     } else {
       // Switch to 3D
@@ -229,7 +258,11 @@ export default function Map() {
         mapRef.current.setPaintProperty(
           "3d-buildings",
           "fill-extrusion-height",
-          ["coalesce", ["get", "height"], ["*", ["coalesce", ["get", "levels"], 1], 3]]
+          [
+            "coalesce",
+            ["get", "height"],
+            ["*", ["coalesce", ["get", "levels"], 1], 3],
+          ]
         );
       }
     }
@@ -237,13 +270,13 @@ export default function Map() {
     setIs3D(!is3D);
   };
 
-    const levels = [
-      { color: "#e9edf4", label: "0-1 level" },
-      { color: "#cdd6e4", label: "2-3 levels" },
-      { color: "#9fb2cf", label: "4-6 levels" },
-      { color: "#5f7fb3", label: "7-10 levels" },
-      { color: "#1e3f73", label: "10+ levels" },
-    ];
+  const levels = [
+    { color: "#e9edf4", label: "0-1 level" },
+    { color: "#cdd6e4", label: "2-3 levels" },
+    { color: "#9fb2cf", label: "4-6 levels" },
+    { color: "#5f7fb3", label: "7-10 levels" },
+    { color: "#1e3f73", label: "10+ levels" },
+  ];
 
   return (
     <div className="relative w-full">
@@ -269,7 +302,9 @@ export default function Map() {
         </div>
         {searchError && (
           <div className="bg-gray-50 rounded-lg px-2 py-1 shadow-sm text-center">
-            <span className="text-red-600 text-sm font-semibold">{searchError}</span>
+            <span className="text-red-600 text-sm font-semibold">
+              {searchError}
+            </span>
           </div>
         )}
       </div>
@@ -284,9 +319,14 @@ export default function Map() {
 
       {/* Legend */}
       <div className="absolute bottom-3 left-3 z-20 bg-white rounded-lg shadow p-3 w-40 text-sm">
-        <div className="font-semibold mb-2 text-center text-lg">Building Floors</div>
+        <div className="font-semibold mb-2 text-center text-lg">
+          Building Floors
+        </div>
         {levels.map((level) => (
-          <div key={level.label} className="flex items-center justify-between mt-1 w-full">
+          <div
+            key={level.label}
+            className="flex items-center justify-between mt-1 w-full"
+          >
             <span
               className="block w-4 h-4 rounded-sm"
               style={{ backgroundColor: level.color }}
