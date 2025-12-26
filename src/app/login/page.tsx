@@ -33,15 +33,6 @@ export default function LoginPage() {
     else router.push("/mail");
   };
 
-  const logout = async () => {
-    const { error } = await supabase.auth.signOut();
-    if (error) alert(error.message);
-    else {
-      setUser(null);
-      router.push("/");
-    }
-  };
-
   useEffect(() => {
     if (user) {
       router.push("/mail");
@@ -51,17 +42,17 @@ export default function LoginPage() {
   return (
     <div
       className="min-h-screen flex items-center justify-center bg-gray-100 bg-cover bg-center"
-      style={{ backgroundImage: "url('/roads_blue.webp')" }}
+      style={{ backgroundImage: "url('/roads.png')" }}
     >
       <div className="absolute inset-0 bg-black/60"></div>
 
       <div className="w-full max-w-100 bg-white rounded-2xl shadow-sm p-8 z-50">
         <h2 className="text-2xl font-bold text-center text-gray-800">
-          Hey JoshDels!
+          Welcome back JoshDels!
         </h2>
 
         <p className="text-center text-sm text-gray-500 p-2">
-          Geospatial Developer Mail
+          Your Geospatial Developer Mail is Ready
         </p>
 
         <div className="space-y-4">
@@ -70,6 +61,9 @@ export default function LoginPage() {
             placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") login();
+            }}
             className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent"
           />
 
@@ -78,6 +72,9 @@ export default function LoginPage() {
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") login()
+            }}
             className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent"
           />
 
@@ -89,7 +86,7 @@ export default function LoginPage() {
           </button>
         </div>
 
-        <p className="text-center text-sm text-gray-400 mt-2">
+        <p className="text-center text-sm text-gray-400 mt-3">
           <Link href="/" className="hover:underline">
             Back to Homepage
           </Link>

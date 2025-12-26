@@ -1,19 +1,19 @@
 "use client";
 
 import Map from "@/src/features/map/Map";
-import { useState } from "react";
 import { usePathname } from "next/navigation";
 import ContactModal from "../ui/modals/Contact";
+import { useContactStore } from "@/src/store/useContactStore";
 
 export default function Hero() {
   const pathname = usePathname();
-  const [showContact, setShowContact] = useState(false);
+  const {showContact, setShowContact} = useContactStore();
 
   return (
     <>
       <div className="flex flex-col lg:flex-row gap-20 xl:gap-20 pb-20 xl:pb-50">
         <div className="lg:flex-1">
-          <p className="text-lg font-medium">Geospatial Web Developer</p>
+          <p className="text-lg font-medium">Geospatial Developer</p>
 
           <h1 className="text-3xl font-bold mt-2">
             Helping organizations grow through powerful geospatial technology
