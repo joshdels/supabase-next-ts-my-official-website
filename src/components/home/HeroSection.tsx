@@ -9,7 +9,7 @@ export default function Hero() {
 
   return (
     <>
-      <div className="relative flex flex-col items-center text-center gap-8 py-80 px-6 overflow-hidden">
+      <div className="relative flex flex-col items-center text-center gap-8 py-50 lg:py-80 px-6 overflow-hidden">
         <Image
           src="/urban_trans.png"
           alt="Background Urban"

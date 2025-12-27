@@ -31,8 +31,7 @@ export default function DemoMap() {
           "https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json",
         center: [0, 0],
         zoom: 1,
-        minZoom: 1,
-        maxZoom: 3,
+        maxZoom: 4,
         attributionControl: false,
       });
 
@@ -149,15 +148,13 @@ export default function DemoMap() {
 
   return (
     <div className="relative w-full h-[82.5vh]">
-      {/* Map container */}
       <div
         ref={mapContainer}
         className="w-full h-full border border-gray-300 rounded-2xl hover:shadow-md"
       />
 
-      {/* Bottom-right legend */}
       {topFive.length > 0 && (
-        <div className="absolute bottom-4 left-4 z-50 w-50 rounded-xl bg-white backdrop-blur-md shadow-lg border border-gray-200 p-4">
+        <div className="absolute bottom-4 left-4 z-20 w-50 rounded-xl bg-white backdrop-blur-md shadow-lg border border-gray-200 p-4">
           <h4 className="font-semibold text-gray-800 text-center mb-3">
             Top Respondents
           </h4>

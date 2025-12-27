@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Star, Trash } from "lucide-react";
+import { Star, Trash, Mail } from "lucide-react";
 
 interface Message {
   ud: string;
@@ -95,13 +95,16 @@ export default function MailContent() {
 
   return (
     <div className="max-w-6xl mx-auto">
-      <h1 className="text-2xl font-bold mb-6">Mailbox</h1>
+      <h1 className="flex gap-2 items-center text-2xl font-bold mb-6">
+        <Mail size={25} />
+        Mailbox
+      </h1>
 
-      <div className="shadow-sm rounded-md divide-y divide-gray-200">
+      <div className="shadow-sm text-sm rounded-md divide-y divide-gray-200">
         {currentItems.map((m) => (
           <div
             key={m.ud}
-            className={`flex items-center px-4 py-3 hover:bg-gray-100 transition-colors ${
+            className={`flex items-center px-4 py-2.5 hover:bg-gray-100 transition-colors ${
               m.is_read ? "bg-gray-100" : "bg-white font-semibold"
             }`}
           >
@@ -147,7 +150,7 @@ export default function MailContent() {
 
       {/* Pagination */}
       {totalPages > 1 && (
-        <div className="flex justify-center mt-4 gap-2">
+        <div className="flex text-sm justify-center mt-4 gap-2">
           <button
             onClick={() => goToPage(currentPage - 1)}
             disabled={currentPage === 1}

@@ -71,7 +71,12 @@ export default function Contact() {
   }
 
   return (
-    <div className="max-w-6xl mx-auto p-6 lg:p-10 bg-white shadow-xl rounded-2xl relative">
+    <div
+      className={`
+      mx-auto p-6 lg:p-10 bg-white shadow-sm rounded-2xl relative transition-all duration-300
+      ${showContact && "max-w-6xl mx-auto"}
+    `}
+    >
       {showContact && (
         <button
           onClick={() => setShowContact(false)}
@@ -82,7 +87,7 @@ export default function Contact() {
         </button>
       )}
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-12">
         {/* Form Section */}
         <div className="flex flex-col justify-center">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">

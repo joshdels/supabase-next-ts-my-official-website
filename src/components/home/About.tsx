@@ -8,33 +8,34 @@ export default function About() {
       <div className="flex-1 mt-10">
         <img
           src="profile.jpg"
-          alt="image"
+          alt="Joshua De Leon"
           className="w-100 h-auto md:w-120 md:h-auto object-cover rounded-xl shadow-lg"
         />
       </div>
       <div className="flex-1">
-        <h1 className="text-3xl font-semibold mb-5">About My Work</h1>
+        <h1 className="text-3xl font-semibold mb-5">About Me</h1>
 
         <p className="mb-5 text-justify">
-          I work at the intersection of urban systems, real estate, and
+          Hi, I'm <strong>Joshua De Leon</strong> from the Philippines. I work
+          remotely at the intersection of urban systems, real estate, and
           geospatial technology. I help organizations understand how cities
           function from land and housing to accessibility, infrastructure, and
-          site visibility turning complex spatial data into actionable
-          insights.
+          site visibility turning complex spatial data into actionable insights.
         </p>
 
         <p className="mb-5 text-justify">
-          I design scalable WebGIS platforms that handle large datasets, making
-          location intelligence accessible to decision-makers, analysts, and
-          organizations. My solutions support site selection, housing analysis,
-          land use planning, and workflow automation, bridging technical depth
-          with practical impact.
+          I design scalable <strong>WebGIS platforms</strong> capable of
+          handling large datasets, making location intelligence accessible to
+          decision-makers, analysts, and organizations. My solutions support
+          site selection, housing analysis, land use planning, and workflow
+          automation, bridging technical expertise with practical impact.
         </p>
 
         <p className="mb-5 text-justify">
-          My goal is to empower real estate developers, urban planners, and
+          My mission is to empower real estate developers, urban planners, and
           organizations to make smarter, data-driven decisions using modern
-          geospatial tools that transform cities’ complexity into clarity.
+          geospatial tools that simplify the complexity of cities into clear
+          insights.
         </p>
 
         <div className="flex items-center gap-4 mt-4">
