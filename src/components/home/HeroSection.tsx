@@ -1,56 +1,55 @@
 "use client";
 
-import Map from "@/src/features/map/Map";
-import { usePathname } from "next/navigation";
 import ContactModal from "../ui/modals/Contact";
 import { useContactStore } from "@/src/store/useContactStore";
+import Image from "next/image";
 
 export default function Hero() {
-  const pathname = usePathname();
-  const {showContact, setShowContact} = useContactStore();
+  const { showContact, setShowContact } = useContactStore();
 
   return (
     <>
-      <div className="flex flex-col lg:flex-row gap-20 xl:gap-20 pb-20 xl:pb-50">
-        <div className="lg:flex-1">
-          <p className="text-lg font-medium">Geospatial Developer</p>
+      <div className="relative flex flex-col items-center text-center gap-8 py-80 px-6 overflow-hidden">
+        <Image
+          src="/urban_trans.png"
+          alt="Background Urban"
+          fill
+          className="absolute inset-0 object-cover -z-10"
+        />
 
-          <h1 className="text-3xl font-bold mt-2">
-            Helping organizations grow through powerful geospatial technology
-          </h1>
-
-          <p className="mt-4 text-gray-700 leading-relaxed">
-            Hi! I'm a developer specializing in modern geospatial solutions that
-            turn your data into real operational advantages. I help businesses
-            and organizations improve planning, decision-making, and day-to-day
-            operations through mapping, analytics, and location-driven insights.
+        <div className="max-w-6xl">
+          <p className="text-lg font-medium text-blue-600">
+            Urban GIS & Location Intelligence
           </p>
 
-          <div className="mt-8 flex flex-wrap gap-4">
+          <h1 className="text-4xl md:text-5xl font-bold mt-3 leading-tight">
+            Turning Urban Data into Clear, Scalable Insights
+          </h1>
+
+          <p className="mt-3 text-gray-600 italic text-base md:text-lg">
+            GIS-powered urban dashboards • Big data & scalable systems •
+            Cost-efficient, high-performance mapping
+          </p>
+
+          <p className="mt-5 text-gray-700 leading-relaxed text-lg md:text-xl">
+            I design geospatial systems that help organizations understand
+            cities from land and housing to infrastructure and accessibility. My
+            work turns complex urban data into practical insights for planning,
+            investment, and operations.
+          </p>
+
+          <div className="mt-8 flex flex-wrap gap-4 justify-center">
             <button
               onClick={() => setShowContact(true)}
-              className="px-6 py-3 rounded-lg bg-blue-600 text-white font-medium shadow-md
-                       hover:bg-blue-700 transition duration-200 ease-in-out
-                       cursor-pointer
-                       "
+              className="px-6 py-3 rounded-lg bg-blue-600 text-white font-medium shadow-md hover:bg-blue-700 transition"
             >
-              Let's Talk
+              Discuss a Location
             </button>
 
-            <button
-              className="px-6 py-3 rounded-lg bg-gray-600 border-gray-300 dark:border-gray-600
-                       font-medium text-white
-                       hover:bg-gray-100 dark:hover:bg-gray-800 transition duration-200 ease-in-out
-                       cursor-pointer
-                       "
-            >
-              View My Work
+            <button className="px-6 py-3 rounded-lg bg-gray-600 text-white hover:bg-gray-700 transition">
+              View Case Studies
             </button>
           </div>
-        </div>
-
-        <div className="lg:flex-1">
-          <Map key={pathname} />
         </div>
       </div>
 
