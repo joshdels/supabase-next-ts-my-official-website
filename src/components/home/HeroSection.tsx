@@ -4,12 +4,16 @@ import ContactModal from "../ui/modals/Contact";
 import { useContactStore } from "@/src/store/useContactStore";
 import Image from "next/image";
 
-export default function Hero() {
+interface HeroProps {
+  scrollToHighlight: () => void;
+}
+
+export default function Hero({ scrollToHighlight }: HeroProps) {
   const { showContact, setShowContact } = useContactStore();
 
   return (
     <>
-      <div className="relative flex flex-col items-center text-center gap-8 py-50 lg:py-80 px-6 overflow-hidden">
+      <div className="relative flex flex-col items-center text-center gap-8 py-30 lg:py-80 px-6 overflow-hidden">
         <Image
           src="/urban_trans.png"
           alt="Background Urban"
@@ -41,12 +45,15 @@ export default function Hero() {
           <div className="mt-8 flex flex-wrap gap-4 justify-center">
             <button
               onClick={() => setShowContact(true)}
-              className="px-6 py-3 rounded-lg bg-blue-600 text-white font-medium shadow-md hover:bg-blue-700 transition"
+              className="px-6 py-3 rounded-lg bg-blue-600 text-white font-medium shadow-md hover:bg-blue-700 transition cursor-pointer"
             >
               Discuss a Location
             </button>
 
-            <button className="px-6 py-3 rounded-lg bg-gray-600 text-white hover:bg-gray-700 transition">
+            <button
+              className="px-6 py-3 rounded-lg bg-gray-600 text-white hover:bg-gray-700 transition cursor-pointer"
+              onClick={scrollToHighlight}
+            >
               View Case Studies
             </button>
           </div>

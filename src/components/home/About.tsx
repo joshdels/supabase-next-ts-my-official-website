@@ -4,12 +4,12 @@ import { Github, Linkedin, FileUser } from "lucide-react";
 
 export default function About() {
   return (
-    <div className="flex flex-col-reverse lg:flex-row items-center my-20 gap-20">
+    <div className="flex flex-col-reverse lg:flex-row items-center my-20 gap-1 lg:gap-20">
       <div className="flex-1 mt-10">
         <img
           src="profile.jpg"
           alt="Joshua De Leon"
-          className="w-100 h-auto md:w-120 md:h-auto object-cover rounded-xl shadow-lg"
+          className="w-auto h-auto md:w-120 md:h-auto object-cover rounded-xl shadow-lg"
         />
       </div>
       <div className="flex-1">

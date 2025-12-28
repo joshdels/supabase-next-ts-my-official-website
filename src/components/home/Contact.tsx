@@ -34,7 +34,9 @@ export default function Contact() {
 
   useEffect(() => {
     if (showSuccess) {
-      const timer = setTimeout(() => setShowSuccess(false), 3000);
+      const timer = setTimeout(() => {
+        setShowSuccess(false), setShowContact(false);
+      }, 3000);
       return () => clearTimeout(timer);
     }
   }, [showSuccess]);
@@ -200,13 +202,13 @@ export default function Contact() {
             >
               <Github size={20} /> GitHub
             </a>
-            <a
+            {/* <a
               href="https://calendly.com/yourcalendly"
               target="_blank"
               className="flex items-center gap-3 border border-gray-300 rounded-lg p-3 hover:bg-gray-100 transition text-gray-800"
             >
               <Calendar size={20} /> Schedule a Call
-            </a>
+            </a> */}
           </div>
 
           {showContact && (

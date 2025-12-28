@@ -16,12 +16,12 @@ const Projects: ProjectProps[] = [
     title: "Homify",
     logo: "/project/logo_homify.svg",
     description:
-      "Struggling to find, show, rent your ideal home? I turn messy spatial information into clear insights for better property and home decisions.",
+      "Find, show, or rent your dream home effortlessly. I transform messy spatial data into clear insights for smarter property decisions.",
     tech: ["django", "leaflet", "docker", "postgres", "bootstrap"],
     features: [
-      "Home location markdown",
-      "List and manage your home details",
-      "Show private and public your house location",
+      "Mark and manage home locations",
+      "Organize and list your home details",
+      "Control visibility: public or private",
     ],
     link: "https://homify.topmapsolutions.com/",
     isMain: true,
@@ -31,12 +31,12 @@ const Projects: ProjectProps[] = [
     title: "Airports",
     logo: "/project/airplane.png",
     description:
-      "Getting Lost of the airports in the Philippines?, I collect and cluster the locations of airports by their class type",
+      "Never get lost in Philippine airports again! I cluster and visualize airport locations by type for quick reference.",
     tech: ["vanilla js", "arcgis sdk"],
     features: [
-      "Open Street Map",
-      "Cluster rendering",
-      "Airplanes location markdown",
+      "OpenStreetMap integration",
+      "Cluster-based rendering",
+      "Pinpoint airplane locations",
     ],
     link: "https://joshdels.github.io/WebGIS-Projects-2025/03-Airport-overview/",
     dateCreated: "2025-07-10",
@@ -45,9 +45,9 @@ const Projects: ProjectProps[] = [
     title: "City Land Cover",
     logo: "/project/landcover.png",
     description:
-      "What land cover is the biggest?, I show how their land cover data and automatically create statistics of it",
+      "Discover what dominates your city’s landscape. I process land cover data and generate automated, insightful statistics.",
     tech: ["geoserver", "docker", "leaflet", "vanilla js", "chart js"],
-    features: ["city landcover", "bar chart statistics", "map boundaries"],
+    features: ["City land cover mapping", "Interactive bar chart stats", "Clear map boundaries"],
     link: "https://landuseandlandcover.vercel.app/",
     dateCreated: "2025-08-10",
   },
@@ -55,16 +55,15 @@ const Projects: ProjectProps[] = [
 
 export default function Project() {
   const main = Projects.find((p) => p.isMain);
-  const others = Projects.filter((p) => !p.isMain).sort(
-    (a, b) =>
-      new Date(b.dateCreated).getTime() - new Date(a.dateCreated).getTime()
-  );
+  const others = Projects
+    .filter((p) => !p.isMain)
+    .sort((a, b) => new Date(b.dateCreated).getTime() - new Date(a.dateCreated).getTime());
 
   return (
-    <div className="mt-16 pb-20">
+    <div className="py-20">
       <h1 className="font-bold text-3xl mb-3">Projects</h1>
-      <p className="mb-8 text-gray-600">
-        How I solved different problems in each project
+      <p className="mb-8 text-gray-700">
+        A showcase of projects I built, turning ideas into functional solutions.
       </p>
 
       {main && <MainProject {...main} />}

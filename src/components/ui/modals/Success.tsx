@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { CircleCheckBig, X, House } from "lucide-react";
+import { useContactStore } from "@/src/store/useContactStore";
 
 interface SuccessProps {
   show: boolean;
@@ -10,19 +11,20 @@ interface SuccessProps {
 
 export default function Success({ show, onClose }: SuccessProps) {
   const router = useRouter();
+  const {setShowContact} = useContactStore();
 
   if (!show) return null;
 
   const handleBackHome = () => {
-    onClose();
+    setShowContact(false);
     router.push("/");
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-md">
+    <div className="fixed inset-0 z-100 flex items-center justify-center bg-black/50 backdrop-blur-md">
       <div className="bg-white/90 backdrop-blur-md rounded-2xl shadow-sm px-8 py-6 flex flex-col items-center gap-4 max-w-sm text-center">
         <div className="text-gray-500 hover:text-red-400 text-right absolute top-4 right-4">
-          <button onClick={onClose}>
+          <button onClick={handleBackHome}>
             <X />
           </button>
         </div>
