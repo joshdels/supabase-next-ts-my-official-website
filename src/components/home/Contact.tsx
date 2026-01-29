@@ -76,7 +76,7 @@ export default function Contact() {
     <div
       className={`
       mx-auto p-6 lg:p-10 bg-white shadow-sm rounded-2xl relative transition-all duration-300
-      ${showContact && "max-w-6xl mx-auto"}
+      ${showContact}
     `}
     >
       {showContact && (
@@ -89,14 +89,14 @@ export default function Contact() {
         </button>
       )}
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-12">
+      <div className="grid">
         {/* Form Section */}
         <div className="flex flex-col justify-center">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
             Get in Touch
           </h1>
           <p className="text-gray-600 mb-6 leading-relaxed">
-            Have an urban challenge like real estate or city planning? Let’s
+            Do you have an urban challenge like real estate or city planning? Let's
             explore how spatial data can help you.
           </p>
 
@@ -179,46 +179,6 @@ export default function Contact() {
               <Mail size={20} /> Send Message
             </button>
           </form>
-        </div>
-
-        {/* Direct Contact Section */}
-        <div className="flex flex-col justify-center border border-gray-200 bg-gray-50 p-8 rounded-xl shadow-md">
-          <p className="text-gray-600 mb-5 font-medium">
-            Or reach me directly via:
-          </p>
-
-          <div className="flex flex-col gap-4">
-            <a
-              href="https://www.linkedin.com/in/joshua-de-leon-8b0310301/"
-              target="_blank"
-              className="flex items-center gap-3 border border-gray-300 rounded-lg p-3 hover:bg-gray-100 transition text-gray-800"
-            >
-              <Linkedin size={20} /> LinkedIn
-            </a>
-            <a
-              href="https://github.com/joshdels"
-              target="_blank"
-              className="flex items-center gap-3 border border-gray-300 rounded-lg p-3 hover:bg-gray-100 transition text-gray-800"
-            >
-              <Github size={20} /> GitHub
-            </a>
-            {/* <a
-              href="https://calendly.com/yourcalendly"
-              target="_blank"
-              className="flex items-center gap-3 border border-gray-300 rounded-lg p-3 hover:bg-gray-100 transition text-gray-800"
-            >
-              <Calendar size={20} /> Schedule a Call
-            </a> */}
-          </div>
-
-          {showContact && (
-            <button
-              onClick={handleBackHome}
-              className="mt-8 text-gray-600 hover:text-gray-900 underline transition self-start flex items-center gap-2 cursor-pointer"
-            >
-              <House size={18} /> Back to Home
-            </button>
-          )}
         </div>
       </div>
 

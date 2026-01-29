@@ -42,19 +42,12 @@ export default function Hero({ scrollToHighlight }: HeroProps) {
             investment, and operations.
           </p>
 
-          <div className="mt-8 flex flex-wrap gap-4 justify-center">
+          <div className="mt-12 flex flex-wrap gap-4 justify-center">
             <button
               onClick={() => setShowContact(true)}
-              className="px-6 py-3 rounded-lg bg-blue-600 text-white font-medium shadow-md hover:bg-blue-700 transition cursor-pointer"
+              className="text-lg px-6 py-3 rounded-lg bg-blue-600 text-white font-black tracking-widest shadow-md hover:bg-blue-700 transition cursor-pointer"
             >
-              Discuss a Location
-            </button>
-
-            <button
-              className="px-6 py-3 rounded-lg bg-gray-600 text-white hover:bg-gray-700 transition cursor-pointer"
-              onClick={scrollToHighlight}
-            >
-              View Case Studies
+              Reach me Out
             </button>
           </div>
         </div>
