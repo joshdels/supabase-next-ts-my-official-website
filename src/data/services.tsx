@@ -5,8 +5,6 @@ import {
   Database,
   BarChart3,
   Gauge,
-  ChevronLeft,
-  ChevronRight,
 } from "lucide-react";
 
 export const services = [

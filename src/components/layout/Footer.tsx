@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="mt-6">
           <div className="text-center text-sm text-gray-500">
             <p>
-              © 2025 JoshDels. Making Geospatial Simple, Usable and Impactful.
+              © 2026 JoshDels. Making Geospatial Simple, Usable and Impactful.
             </p>
           </div>
         </div>
