@@ -16,26 +16,28 @@ export default function About() {
         <h1 className="text-3xl font-semibold mb-5">About Me</h1>
 
         <p className="mb-5 text-justify">
-          Hi, I'm <strong>Joshua De Leon</strong> from the Philippines. I work
-          remotely at the intersection of urban systems, real estate, and
-          geospatial technology. I help organizations understand how cities
-          function from land and housing to accessibility, infrastructure, and
-          site visibility turning complex spatial data into actionable insights.
+          Hi, I'm <strong>Joshua De Leon</strong> from the Philippines. I
+          specialize in enterprise-level{" "}
+          <strong>geospatial systems, data engineering, and automation</strong>,
+          helping organizations transform complex spatial and urban data into
+          actionable insights. My work spans location intelligence, real estate,
+          infrastructure analysis, and urban planning.
         </p>
 
         <p className="mb-5 text-justify">
-          I design scalable <strong>WebGIS platforms</strong> capable of
-          handling large datasets, making location intelligence accessible to
-          decision-makers, analysts, and organizations. My solutions support
-          site selection, housing analysis, land use planning, and workflow
-          automation, bridging technical expertise with practical impact.
+          I design and implement <strong>scalable WebGIS platforms, dashboards, and automated pipelines </strong>
+           capable of handling large datasets for high-performance analytics. My
+          solutions enable enterprises to perform site selection, land use
+          planning, housing analysis, accessibility mapping, and workflow
+          automation bridging technical expertise with strategic
+          decision-making.
         </p>
 
         <p className="mb-5 text-justify">
-          My mission is to empower real estate developers, urban planners, and
-          organizations to make smarter, data-driven decisions using modern
-          geospatial tools that simplify the complexity of cities into clear
-          insights.
+          My mission is to empower organizations, developers, and urban planners
+          to make smarter, data-driven decisions. I simplify complex spatial
+          systems into clear, actionable insights using modern geospatial
+          technology, scalable infrastructure, and automated workflows.
         </p>
 
         <div className="flex items-center gap-4 mt-4">

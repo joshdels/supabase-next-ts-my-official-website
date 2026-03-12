@@ -1,8 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { PanelTopClose, Menu } from "lucide-react";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { supabase } from "@/src/lib/supabaseClient";
 import { useAuth } from "@/src/hooks/useAuth";
@@ -14,10 +14,7 @@ export default function Navbar() {
   const { user } = useAuth();
 
   const menuItems = [
-    { name: "Home", path: "/" },
-    { name: "Services", path: "/" },
-    { name: "Project", path: "/" },
-    { name: "About", path: "/" },
+    { name: "Mail", path: "/mail" },
   ];
 
   const logout = async () => {

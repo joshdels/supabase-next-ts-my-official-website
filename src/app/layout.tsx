@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   description: "This is my official portfolio website",
    icons: {
     icon: "/gis.jpg",
-    shortcut: "/gis.jpg",   // for old browsers
+    shortcut: "/gis.jpg",
     apple: "/gis.jpg",  
   },
 };

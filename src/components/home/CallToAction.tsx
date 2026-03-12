@@ -9,7 +9,7 @@ export default function CallToAction() {
 
   return (
     <>
-      <div className="relative -mx-5 sm:-mx:5 md:-mx-10 2xl:-mx-40 z-0 text-center text-gray-800 px-20 py-20">
+      <div className="relative -mx-5 sm:-mx-5 md:-mx-10 2xl:-mx-40 z-0 text-center text-gray-800 px-20 py-20">
         <Image
           src="/urban_trans.png"
           alt="Background Urban"
@@ -18,18 +18,19 @@ export default function CallToAction() {
         />
 
         <h2 className="relative z-10 text-4xl font-bold text-gray-900">
-          Tired of Urban GIS headaches? Let's fix them!
+          Turn Complex Geospatial Data into Actionable Solutions
         </h2>
         <p className="relative z-10 text-gray-600 mt-4 text-lg">
-          Reach out and let's make your urban projects simpler.
+          I help organizations simplify spatial systems, automate workflows, and
+          build scalable GIS solutions.
         </p>
 
         <div className="relative z-10 mt-8 flex flex-wrap gap-4 justify-center">
           <button
             onClick={() => setShowContact(true)}
-            className="px-6 py-3 rounded-lg bg-blue-600 text-white font-medium shadow-md hover:bg-blue-700 transition cursor-poin"
+            className="px-6 py-3 rounded-lg bg-blue-600 text-white font-medium shadow-md hover:bg-blue-700 transition cursor-pointer"
           >
-            Send me a message
+            Work with Me
           </button>
         </div>
       </div>

@@ -23,23 +23,23 @@ export default function Hero({ scrollToHighlight }: HeroProps) {
 
         <div className="max-w-6xl">
           <p className="text-lg font-medium text-blue-600">
-            Urban GIS & Location Intelligence
+            Geospatial Systems Engineer & Data Automation Specialist
           </p>
 
           <h1 className="text-4xl md:text-5xl font-bold mt-3 leading-tight">
-            Turning Urban Data into Clear, Scalable Insights
+            Building Smart Geospatial Systems for Real-World Impact
           </h1>
 
           <p className="mt-3 text-gray-600 italic text-base md:text-lg">
-            GIS-powered urban dashboards • Big data & scalable systems •
+            GIS-powered dashboards • Big data & scalable systems •
             Cost-efficient, high-performance mapping
           </p>
 
           <p className="mt-5 text-gray-700 leading-relaxed text-lg md:text-xl">
-            I design geospatial systems that help organizations understand
-            cities from land and housing to infrastructure and accessibility. My
-            work turns complex urban data into practical insights for planning,
-            investment, and operations.
+            I build geospatial systems, dashboards, and automation pipelines
+            that help organizations turn complex location and spatial data into
+            actionable insights. My work spans spatial and web analytics, mobile GIS,
+            scalable mapping platforms, and cost-efficient automation solutions.
           </p>
 
           <div className="mt-12 flex flex-wrap gap-4 justify-center">
@@ -47,7 +47,7 @@ export default function Hero({ scrollToHighlight }: HeroProps) {
               onClick={() => setShowContact(true)}
               className="text-lg px-6 py-3 rounded-lg bg-blue-600 text-white font-black tracking-widest shadow-md hover:bg-blue-700 transition cursor-pointer"
             >
-              Reach me Out
+              Work with Me
             </button>
           </div>
         </div>
