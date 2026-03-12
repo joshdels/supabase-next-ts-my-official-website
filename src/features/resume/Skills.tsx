@@ -8,7 +8,7 @@ export default function Skills() {
     },
     {
       category: "Web Mapping",
-      tools: ["Mapbox", "MapLibre", "Leaflet", "OpenLayers", "Deck.gl", "Turf.js", "ArcGIS SDK", "Google Map API"],
+      tools: ["Mapbox", "MapLibre", "Leaflet", "OpenLayers", "Deck.gl", "Turf.js", "ArcGIS SDK", "Google Map API", "GeoServers"],
     },
     {
       category: "Backend & ETL",
@@ -25,6 +25,10 @@ export default function Skills() {
     {
       category: "Mobile and Custom GIS",
       tools: ["PyQT5", "PyQGIS", "Flutter", "Dart"],
+    },
+    {
+      category: "Cloud and Deployment",
+      tools: ["Vulter", "Digial Ocean", "Vercel", "BackBlaze"],
     },
   ];
 

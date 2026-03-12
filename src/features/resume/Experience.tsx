@@ -2,7 +2,7 @@ import { experiences } from "@/src/data/experience";
 
 export default function WorkExperience() {
   return (
-    <section className="max-w-5xl mx-auto py-5">
+    <section className="py-5">
       <h2 className="text-3xl font-bold mb-5 text-gray-900">Experience</h2>
 
       <div className="flex flex-col gap-8">

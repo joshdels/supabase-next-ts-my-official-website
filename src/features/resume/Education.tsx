@@ -2,7 +2,7 @@ import { Education } from "@/src/data/education";
 
 export default function EducationSection() {
   return (
-    <section className="max-w-5xl mx-auto py-5">
+    <section className="py-5">
       {/* Title */}
       <h2 className="text-3xl font-bold mb-5 text-gray-900">Education</h2>
 

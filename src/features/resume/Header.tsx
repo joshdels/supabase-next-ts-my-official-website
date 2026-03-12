@@ -1,6 +1,8 @@
 export default function Header() {
   return (
-    <header className="mb-8 mt-20 bg-white shadow-md rounded-xl p-6 border border-gray-200 text-center">
+    <header
+      className="mt-20 mb-10 text-center "
+    >
       {/* Name */}
       <h1 className="text-4xl font-extrabold text-gray-900">Joshua De Leon</h1>
 
