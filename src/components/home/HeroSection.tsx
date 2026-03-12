@@ -21,8 +21,8 @@ export default function Hero({ scrollToHighlight }: HeroProps) {
           className="absolute inset-0 object-cover -z-10"
         />
 
-        <div className="max-w-6xl">
-          <p className="text-lg font-medium text-blue-600">
+        <div className="max-w-7xl">
+          <p className="text-xl font-medium text-blue-600">
             Geospatial Systems Engineer & Data Automation Specialist
           </p>
 
@@ -30,7 +30,7 @@ export default function Hero({ scrollToHighlight }: HeroProps) {
             Building Smart Geospatial Systems for Real-World Impact
           </h1>
 
-          <p className="mt-3 text-gray-600 italic text-base md:text-lg">
+          <p className="max-w-6xl mt-3 text-gray-600 italic text-base md:text-lg">
             GIS-powered dashboards • Big data & scalable systems •
             Cost-efficient, high-performance mapping
           </p>
