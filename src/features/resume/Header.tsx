@@ -1,10 +1,20 @@
+import Image from "next/image";
+
 export default function Header() {
   return (
-    <header
-      className="mt-20 mb-10 text-center "
-    >
+    <header className="mt-20 mb-10 text-center ">
+      <div className="flex w-35 sm:w-60 h-35 sm:h-60 relative mb-4 mx-auto items-center justify-center">
+        <Image
+          src="/resume/profile.jpg"
+          alt="Joshua De Leon"
+          fill
+          className="rounded-full object-cover border-4 border-white shadow-md"
+        />
+      </div>
       {/* Name */}
-      <h1 className="text-4xl font-extrabold text-gray-900">Joshua De Leon</h1>
+      <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900">
+        Joshua De Leon
+      </h1>
 
       {/* Contact Info */}
       <div className="mt-2 flex flex-wrap justify-center gap-2 text-gray-600 text-sm">
@@ -20,7 +30,7 @@ export default function Header() {
         <span>+639927311219</span>
         <span>|</span>
         <a
-          href="https://www.linkedin.com/in/assistantgisjosh"
+          href="https://www.linkedin.com/in/joshua-de-leon-8b0310301/"
           target="_blank"
           className="underline hover:text-blue-600"
         >

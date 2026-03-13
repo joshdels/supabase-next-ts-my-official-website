@@ -9,7 +9,7 @@ interface ExperiencesProps {
 
 export const experiences: ExperiencesProps[] = [
   {
-    logo: "/experience/topmap.svg",
+    logo: "/resume/experience/tms.png",
     company: "TopMap Solutions",
     role: "Technical Co-Founder (Hybrid)",
     location: "Philippines",
@@ -21,7 +21,7 @@ export const experiences: ExperiencesProps[] = [
     ],
   },
   {
-    logo: "/experience/landhomes.svg",
+    logo: "/resume/experience/lht.png",
     company: "Land Homes Texas Real Estate",
     role: "Geospatial Web Developer (Remote)",
     location: "Texas, USA",
@@ -33,7 +33,7 @@ export const experiences: ExperiencesProps[] = [
     ],
   },
   {
-    logo: "/experience/landhomes.svg",
+    logo: "/resume/experience/ceres.png",
     company: "Ceres AI ",
     role: "GIS and Remote Sensing Analyst  (Remote)",
     location: "San Francisco, California",
@@ -44,6 +44,15 @@ export const experiences: ExperiencesProps[] = [
       "Digitized and maintained 100+ agricultural field shapefiles per month within the geospatial database.",
     ],
   },
+  {
+    logo: "/resume/experience/DA.png",
+    company: "Department of Agriculture XI",
+    role: "RSBSA Enumerator/Georeferencer (On Site)",
+    location: "Davao del Norte, Philippines",
+    date: "April 2024 - Nov 2025",
+    duties: [
+      "Identified and registered 2,000 local farmers into the regional database by hand",
+      "Validated 500 hectares of farmland using field GPS surveys",
+    ],
+  },
 ];
-
-
