@@ -68,32 +68,4 @@ export const Projects: ProjectProps[] = [
     link: "https://joshdels.github.io/webmaps-demonstration-uk/",
     dateCreated: "2026-03-01",
   },
-  // {
-  //   title: "Airports",
-  //   logo: "/project/airplane.png",
-  //   description:
-  //     "Never get lost in Philippine airports again! I cluster and visualize airport locations by type for quick reference.",
-  //   tech: ["vanilla js", "arcgis sdk"],
-  //   features: [
-  //     "OpenStreetMap integration",
-  //     "Cluster-based rendering",
-  //     "Pinpoint airplane locations",
-  //   ],
-  //   link: "https://joshdels.github.io/WebGIS-Projects-2025/03-Airport-overview/",
-  //   dateCreated: "2025-07-10",
-  // },
-  // {
-  //   title: "City Land Cover",
-  //   logo: "/project/landcover.png",
-  //   description:
-  //     "Discover what dominates your city’s landscape. I process land cover data and generate automated, insightful statistics.",
-  //   tech: ["geoserver", "docker", "leaflet", "vanilla js", "chart js"],
-  //   features: [
-  //     "City land cover mapping",
-  //     "Interactive bar chart stats",
-  //     "Clear map boundaries",
-  //   ],
-  //   link: "https://landuseandlandcover.vercel.app/",
-  //   dateCreated: "2025-08-10",
-  // },
 ];

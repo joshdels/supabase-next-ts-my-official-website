@@ -92,7 +92,7 @@ export default function Map() {
         // Smoothly fly to location with zoom
         mapRef.current?.flyTo({
           center: [parseFloat(lon), parseFloat(lat)],
-          zoom: 16,
+          zoom: 17,
           speed: 1.5, // slower = calmer
           curve: 1, // gentler flight arc
           essential: true,
@@ -118,7 +118,7 @@ export default function Map() {
       style:
         "https://basemaps.cartocdn.com/gl/positron-nolabels-gl-style/style.json",
       center: [120.9842, 14.5995],
-      zoom: 16,
+      zoom: 17,
       pitch: 45,
       bearing: -17.6,
       attributionControl: false,
@@ -140,7 +140,7 @@ export default function Map() {
       const zoom = mapRef.current.getZoom();
 
       // Skip fetching buildings if zoomed out too far
-      if (zoom < 14) {
+      if (zoom < 15) {
         // Optional: show message in loading spinner
         setLoading(true);
         setSearchError("Zoom in more to load buildings"); // show message to user

@@ -1,5 +1,6 @@
 # This is my official website.v1
 Check it out: [https://joshdels.topmapsolutions.com/](https://joshdels.topmapsolutions.com/)
+This includes my projects, freelancing templates, portfolio, invoices and even project management system
 
 ![Photo/](./images/webstiev1.PNG)
 

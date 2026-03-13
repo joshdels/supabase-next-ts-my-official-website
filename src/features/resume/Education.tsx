@@ -11,7 +11,7 @@ export default function EducationSection() {
         {Education.map((edu, index) => (
           <div
             key={index}
-            className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition"
+            className="bg-white border border-gray-200 rounded-2xl p-6 hover:shadow-md transition"
           >
             <div className="flex items-start gap-4">
               {/* Logo */}
