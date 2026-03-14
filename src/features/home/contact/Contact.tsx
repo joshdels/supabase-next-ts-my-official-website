@@ -2,9 +2,10 @@
 
 import { useState, useRef, useEffect } from "react";
 import { useCountries } from "@/src/hooks/useCountries";
-import { Mail, Linkedin, Github, Calendar, X, House } from "lucide-react";
-import Success from "../ui/modals/Success";
 import { useContactStore } from "@/src/store/useContactStore";
+
+import Success from "@/src/components/ui/modals/Success";
+import { Mail, Linkedin, Github, Calendar, X, House } from "lucide-react";
 
 interface Country {
   id: number;
@@ -35,7 +36,7 @@ export default function Contact() {
   useEffect(() => {
     if (showSuccess) {
       const timer = setTimeout(() => {
-        setShowSuccess(false), setShowContact(false);
+        (setShowSuccess(false), setShowContact(false));
       }, 3000);
       return () => clearTimeout(timer);
     }
@@ -96,8 +97,8 @@ export default function Contact() {
             Get in Touch
           </h1>
           <p className="text-gray-600 mb-6 leading-relaxed">
-            Do you have an urban challenge like real estate or city planning? Let's
-            explore how spatial data can help you.
+            Do you have an urban challenge like real estate or city planning?
+            Let's explore how spatial data can help you.
           </p>
 
           <form className="flex flex-col gap-5" onSubmit={handleSubmit}>

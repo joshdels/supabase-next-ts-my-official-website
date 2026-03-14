@@ -1,8 +1,8 @@
 import Project from "@/src/features/projects/Project";
-import About from "../home/About";
-import Highlight from "../home/Highlight";
+import About from "../../features/home/About";
+import Highlight from "../../features/home/Highlight";
 import Services from "../../features/services/Services";
-import CallToAction from "../home/CallToAction";
+import CallToAction from "../../features/home/CallToAction";
 
 interface BodyProps {
   highlightRef: React.RefObject<HTMLDivElement | null>;

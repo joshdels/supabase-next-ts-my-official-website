@@ -1,6 +1,6 @@
 "use client";
 
-import Contact from "../../home/Contact";
+import Contact from "../Contact";
 
 export default function ContactModal() {
   return (

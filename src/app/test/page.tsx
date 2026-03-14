@@ -1,7 +1,7 @@
-import ContactModal from "@/src/components/ui/modals/Contact";
+import ContactModal from "@/src/features/home/contact/modal/ContactModal";
 import Success from "@/src/components/ui/modals/Success";
 import Services from "@/src/features/services/Services";
-import CallToAction from "@/src/components/home/CallToAction";
+import CallToAction from "@/src/features/home/CallToAction";
 
 export default function Page() {
   return (

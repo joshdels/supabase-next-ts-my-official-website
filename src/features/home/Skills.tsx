@@ -1,4 +1,4 @@
-import { SkillCard } from "../ui/Card";
+import { SkillCard } from "../../components/ui/Card";
 
 // This is subjected to not show cause its redundant
 

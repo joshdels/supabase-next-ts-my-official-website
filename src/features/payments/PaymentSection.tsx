@@ -24,7 +24,7 @@ export default function PaymentSection({ title, type }: PaymentSectionProps) {
     <>
       <h1 className="text-4xl font-bold mt-20">{title}</h1>
       <section className="mx-auto my-5">
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {payments
             .filter((payment) => payment.type == type)
             .map((payment: PaymentsProp, index: number) => (
@@ -54,7 +54,7 @@ export default function PaymentSection({ title, type }: PaymentSectionProps) {
                   </div>
                 </div>
 
-                <div className="flex flex-row gap-2">
+                <div className="flex flex-col md:flex-row gap-2">
                   {payment.proof && (
                     <a
                       href={payment.proof}

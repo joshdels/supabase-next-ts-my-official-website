@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import ContactModal from "../ui/modals/Contact";
+import ContactModal from "./contact/modal/ContactModal";
 import { useContactStore } from "@/src/store/useContactStore";
 
 export default function CallToAction() {

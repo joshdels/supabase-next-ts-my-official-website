@@ -9,21 +9,21 @@ export interface PaymentsProp {
 
 export const payments: PaymentsProp[] = [
   {
-    logo: "/payments/bdo.png",
+    logo: "/payments/logo/bdo.png",
     name: "BDO",
     type: "local",
     account_number: "003780760392",
     account_name: "Joshua S De Leon",
   },
   {
-    logo: "/payments/gcash.png",
+    logo: "/payments/logo/gcash.png",
     name: "gcash",
     type: "local",
     account_number: "09652669914",
     account_name: "Joshua De Leon",
   },
   {
-    logo: "/payments/wise.png",
+    logo: "/payments/logo/wise.png",
     name: "wise - US",
     type: "international",
     account_number: "211525041123",
@@ -31,7 +31,7 @@ export const payments: PaymentsProp[] = [
     proof: "/payments/proof/usd.pdf",
   },
   {
-    logo: "/payments/wise.png",
+    logo: "/payments/logo/wise.png",
     name: "wise - UK",
     type: "international",
     account_number: "56262422",

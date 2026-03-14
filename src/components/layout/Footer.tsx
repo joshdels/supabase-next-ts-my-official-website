@@ -1,4 +1,5 @@
-import Contact from "../home/Contact";
+import Contact from "@/src/features/home/contact/Contact";
+
 
 export default function Footer() {
   return (

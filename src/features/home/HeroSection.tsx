@@ -1,6 +1,6 @@
 "use client";
 
-import ContactModal from "../ui/modals/Contact";
+import ContactModal from "./contact/modal/ContactModal";
 import { useContactStore } from "@/src/store/useContactStore";
 import Image from "next/image";
 
@@ -13,7 +13,7 @@ export default function Hero({ scrollToHighlight }: HeroProps) {
 
   return (
     <>
-      <div className="relative flex flex-col items-center text-center gap-8 py-30 lg:py-80 px-6 overflow-hidden">
+      <div className="relative flex flex-col justify-center items-center text-center gap-8 py-30 lg:py-80 px-6 min-h-screen overflow-hidden">
         <Image
           src="/urban_trans.png"
           alt="Background Urban"
@@ -38,8 +38,9 @@ export default function Hero({ scrollToHighlight }: HeroProps) {
           <p className="mt-5 text-gray-700 leading-relaxed text-lg md:text-xl">
             I build geospatial systems, dashboards, and automation pipelines
             that help organizations turn complex location and spatial data into
-            actionable insights. My work spans spatial and web analytics, mobile GIS,
-            scalable mapping platforms, and cost-efficient automation solutions.
+            actionable insights. My work spans spatial and web analytics, mobile
+            GIS, scalable mapping platforms, and cost-efficient automation
+            solutions.
           </p>
 
           <div className="mt-12 flex flex-wrap gap-4 justify-center">
