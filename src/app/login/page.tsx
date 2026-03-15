@@ -31,12 +31,12 @@ export default function LoginPage() {
       password,
     });
     if (error) alert(error.message);
-    else router.push("/mail");
+    else router.push("/dashboard");
   };
 
   useEffect(() => {
     if (user) {
-      router.push("/mail");
+      router.push("/dashboard");
     }
   }, [user, router]);
 

@@ -15,12 +15,13 @@ export default function About() {
     >
       <div className="flex-1 mt-10">
         <Image
-          src="profile.jpg"
+          src="/profile.jpg"
           alt="Joshua De Leon"
-          className="w-auto h-auto md:w-120 md:h-auto object-cover rounded-xl shadow-lg"
+          width={500} height={500}
+          className="object-cover rounded-xl shadow-lg"
         />
       </div>
-      <div className="flex-1 text-base lg:text-lg">
+      <div className="flex-2 text-base lg:text-lg">
         <h1 className="text-3xl font-semibold mb-5">About Me</h1>
 
         <p className="mb-6 text-justify leading-relaxed">

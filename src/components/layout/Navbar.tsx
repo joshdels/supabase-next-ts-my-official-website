@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter, usePathname } from "next/navigation"; // Added usePathname
+import { useRouter, usePathname } from "next/navigation";
 import { PanelTopClose, Menu, Lock } from "lucide-react";
 import Link from "next/link";
 import { supabase } from "@/src/lib/supabaseClient";
@@ -105,7 +105,6 @@ export default function Navbar() {
             {item.name}
           </p>
         ))}
-        {/* ... Auth buttons remain same but call handleNavClick logic if needed ... */}
       </div>
     </>
   );
