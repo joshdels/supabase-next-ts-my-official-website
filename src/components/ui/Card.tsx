@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 interface CardProps {
   title: string;
   logo: string;
@@ -30,7 +32,7 @@ export function MainProject({
           Highlight / 01
         </p>
 
-        <img src={logo} alt={title} className="h-20 w-auto mb-4" />
+        <Image src={logo} alt={title} className="h-20 w-auto mb-4" />
 
         <h1 className="text-3xl font-bold mb-4">{title}</h1>
 
@@ -99,7 +101,7 @@ export function OtherProject({
     >
       <div className="flex flex-col">
         <div className="flex justify-between">
-          <img src={logo} alt={title} className="h-12 w-auto mb-4" />
+          <Image src={logo} alt={title} className="h-12 w-auto mb-4" />
           <p className="text-sm text-gray-400">
             {(index ?? 0) + 1}/{total ?? 1}
           </p>
@@ -151,7 +153,7 @@ export function SkillCard({ logo, skillName, className }: SkillCardProps) {
       <div
         className={`border rounded-xl border-gray-300 p-4 flex items-center gap-4 hover:shadow-md transition-shadow duration-300 ${className}`}
       >
-        <img src={logo} alt={skillName || "logo"} className="h-8 w-auto" />
+        <Image src={logo!} alt={skillName || "logo"} className="h-8 w-auto" />
         <p className="text-lg font-medium">{skillName}</p>
       </div>
     </>

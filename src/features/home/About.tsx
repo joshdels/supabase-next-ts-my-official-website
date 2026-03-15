@@ -1,6 +1,7 @@
 "use client";
 
 import { Github, Linkedin, FileUser } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 export default function About() {
@@ -13,7 +14,7 @@ export default function About() {
         px-5 sm:px-5 md:px-10 lg:px-20 2xl:px-40"
     >
       <div className="flex-1 mt-10">
-        <img
+        <Image
           src="profile.jpg"
           alt="Joshua De Leon"
           className="w-auto h-auto md:w-120 md:h-auto object-cover rounded-xl shadow-lg"

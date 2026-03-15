@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Education } from "@/src/data/education";
 
 export default function EducationSection() {
@@ -16,7 +17,7 @@ export default function EducationSection() {
             <div className="flex items-start gap-4">
               {/* Logo */}
               {edu.logo && (
-                <img
+                <Image
                   src={edu.logo}
                   alt={edu.school}
                   className="w-10 h-10 object-contain mt-1"
