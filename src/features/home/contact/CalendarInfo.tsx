@@ -6,8 +6,13 @@ export default function CalendarInfo() {
       </h2>
 
       <p className="text-lg text-gray-600">
-        Book a free 30-minute consultation to discuss your organization's GIS
-        needs and how I can help solve them.
+        Schedule a complimentary 30-minute consultation to explore your
+        organization's GIS needs and discover practical solutions tailored to
+        your operations.
+      </p>
+
+      <p className="text-gray-400 mt-8">
+        If the scheduler doesn't load, please refresh your browser.
       </p>
     </div>
   );

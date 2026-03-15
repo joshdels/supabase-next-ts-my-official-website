@@ -8,7 +8,7 @@ export default function CallToAction() {
 
   return (
     <>
-      <div className="relative -mx-5 sm:-mx-5 md:-mx-10 2xl:-mx-40 z-0 text-center text-gray-800 px-20 py-20">
+      <div className="flex flex-col relative -mx-5 sm:-mx-5 md:-mx-10 2xl:-mx-40 z-0 text-center text-gray-800 px-20 py-20 justify-center min-h-screen">
         <Image
           src="/urban_trans.png"
           alt="Background Urban"
