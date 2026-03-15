@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
+import { useState } from "react";
 import { FileUser, Copy, CopyCheck } from "lucide-react";
 
 import { payments, PaymentsProp } from "@/src/data/payments.";
