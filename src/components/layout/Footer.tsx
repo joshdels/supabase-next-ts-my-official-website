@@ -1,19 +1,20 @@
-import Contact from "@/src/features/home/contact/Contact";
-
+import Calendar from "@/src/features/home/Calendar";
+import CalendarInfo from "@/src/features/home/contact/CalendarInfo";
 
 export default function Footer() {
   return (
-    <>
-      <div className="flex flex-col px-5 sm:px-5 md:px-20 lg:px-20 1xl:px-20 2xl:px-40 pb-5 pt-15 bg-gray-100 border-t border-gray-200">
-        <Contact />
-        <div className="mt-6">
-          <div className="text-center text-sm text-gray-500">
-            <p>
-              © 2026 JoshDels. Making Geospatial Simple, Usable and Impactful.
-            </p>
-          </div>
-        </div>
+    <div
+      id="footer-section"
+      className="flex flex-col px-5 md:px-20 2xl:px-40 pb-10 pt-16 bg-gray-100 border-t border-gray-200 h-screen "
+    >
+      <div className="flex-1 flex flex-col lg:flex-row items-center gap-12 justify-center">
+        <CalendarInfo />
+        <Calendar />
       </div>
-    </>
+
+      <div className="mt-auto text-center text-sm text-gray-500 py-10">
+        © 2026 JoshDels. Making Geospatial Simple, Usable and Impactful.
+      </div>
+    </div>
   );
 }

@@ -1,11 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import ContactModal from "./contact/modal/ContactModal";
-import { useContactStore } from "@/src/store/useContactStore";
+import { useScrollTo } from "@/src/hooks/useScrolls";
 
 export default function CallToAction() {
-  const { showContact, setShowContact } = useContactStore();
+  const scrollTo = useScrollTo();
 
   return (
     <>
@@ -27,15 +26,13 @@ export default function CallToAction() {
 
         <div className="relative z-10 mt-8 flex flex-wrap gap-4 justify-center">
           <button
-            onClick={() => setShowContact(true)}
+            onClick={() => scrollTo("footer-section")}
             className="px-6 py-3 rounded-lg bg-blue-600 text-white font-medium shadow-md hover:bg-blue-700 transition cursor-pointer"
           >
             Work with Me
           </button>
         </div>
       </div>
-
-      {showContact && <ContactModal />}
     </>
   );
 }

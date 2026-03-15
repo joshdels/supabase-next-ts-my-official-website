@@ -1,19 +1,16 @@
 "use client";
 
-import ContactModal from "./contact/modal/ContactModal";
-import { useContactStore } from "@/src/store/useContactStore";
 import Image from "next/image";
+import { useScrollTo } from "@/src/hooks/useScrolls";
 
-interface HeroProps {
-  scrollToHighlight: () => void;
-}
-
-export default function Hero({ scrollToHighlight }: HeroProps) {
-  const { showContact, setShowContact } = useContactStore();
+export default function Hero() {
+  const scrollTo = useScrollTo();
 
   return (
     <>
-      <div className="relative flex flex-col justify-center items-center text-center gap-8 py-30 lg:py-80 px-6 min-h-screen overflow-hidden">
+      <div 
+      id="hero-section"
+      className="relative flex flex-col justify-center items-center text-center gap-8 py-30 lg:py-80 px-6 min-h-screen overflow-hidden">
         <Image
           src="/urban_trans.png"
           alt="Background Urban"
@@ -22,7 +19,7 @@ export default function Hero({ scrollToHighlight }: HeroProps) {
         />
 
         <div className="max-w-7xl">
-          <p className="text-xl font-medium text-blue-600">
+          <p className="text-sm lg:text-xl font-medium text-blue-600">
             Geospatial Systems Engineer & Data Automation Specialist
           </p>
 
@@ -45,7 +42,7 @@ export default function Hero({ scrollToHighlight }: HeroProps) {
 
           <div className="mt-12 flex flex-wrap gap-4 justify-center">
             <button
-              onClick={() => setShowContact(true)}
+              onClick={() => scrollTo("footer-section")}
               className="text-lg px-6 py-3 rounded-lg bg-blue-600 text-white font-black tracking-widest shadow-md hover:bg-blue-700 transition cursor-pointer"
             >
               Work with Me
@@ -53,8 +50,6 @@ export default function Hero({ scrollToHighlight }: HeroProps) {
           </div>
         </div>
       </div>
-
-      {showContact && <ContactModal />}
     </>
   );
 }

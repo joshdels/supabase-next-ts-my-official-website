@@ -8,7 +8,9 @@ export default function Project() {
     .sort((a, b) => new Date(b.dateCreated).getTime() - new Date(a.dateCreated).getTime());
 
   return (
-    <div className="py-20">
+    <div 
+    id = "project-section"
+    className="flex flex-col py-20 min-h-screen justify-center">
       <h1 className="font-bold text-3xl mb-3">Projects</h1>
       <p className="mb-8 text-gray-700">
         A showcase of projects I built, turning ideas into functional solutions.
@@ -16,7 +18,7 @@ export default function Project() {
 
       {main && <MainProject {...main} />}
 
-      <div className="flex flex-wrap gap-5 justify-center">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
         {others.map((p, index) => (
           <OtherProject
             key={p.title}

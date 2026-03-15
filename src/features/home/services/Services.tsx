@@ -12,7 +12,7 @@ export default function Services() {
   const next = () => setIndex((prev) => (prev === total - 1 ? 0 : prev + 1));
 
   return (
-    <section className="pt-10 pb-20">
+    <section id="services-section" className="flex flex-col pt-10 pb-20 min-h-screen justify-center">
       {/* Header */}
       <div className="mb-10">
         <h2 className="text-3xl font-semibold">
@@ -27,7 +27,7 @@ export default function Services() {
 
       {/* Mobile Carousel */}
       <div className="relative sm:hidden mx-6 overflow-visible">
-        <div className="p-6 bg-white border border-gray-300 rounded-2xl shadow-md">
+        <div className="p-6 bg-white rounded-2xl shadow-sm hower:shadow-lg transition">
           {services[index].icon}
           <h3 className="font-medium text-lg mb-2">{services[index].title}</h3>
           <p className="text-sm text-gray-600">{services[index].desc}</p>
@@ -53,7 +53,7 @@ export default function Services() {
         {services.map((service, idx) => (
           <div
             key={idx}
-            className="rounded-2xl border border-gray-300 bg-white p-6 hover:shadow-lg transition"
+            className="rounded-2xl bg-white p-6 shadow-sm hover:shadow-lg transition"
           >
             {service.icon}
             <h3 className="font-medium text-lg mb-2">{service.title}</h3>

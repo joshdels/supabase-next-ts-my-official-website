@@ -11,7 +11,7 @@ import {
 
 export default function Highlight() {
   return (
-    <section className="flex flex-col lg:flex-row gap-20">
+    <section className="flex flex-col lg:flex-row gap-20 min-h-screen justify-center items-center">
       <div className="flex-1 space-y-8">
         <h1 className="text-3xl font-semibold">
           How I Solved the Urban Problems

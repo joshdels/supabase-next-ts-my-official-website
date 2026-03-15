@@ -20,9 +20,9 @@ export function MainProject({
 }: CardProps) {
   return (
     <div
-      className="border border-gray-300 rounded-xl p-8 
+      className=" rounded-xl p-8 
                  flex flex-col md:flex-row gap-10 bg-white
-                 hover:shadow-md hover:shadow-gray-300 
+                 shadow-sm hover:shadow-lg
                  transition-shadow duration-300 mt-5"
     >
       <div className="flex-1">
@@ -39,7 +39,7 @@ export function MainProject({
         {link && (
           <a
             href={link}
-            className="text-gray-400 font-medium hover:text-gray-700 mt-4 block"
+            className="text-blue-600 font-bold hover:text-blue-700 mt-4 block text-lg"
             target="_blank"
           >
             Visit →
@@ -50,9 +50,7 @@ export function MainProject({
       {/* RIGHT SIDE */}
       <div className="flex-1">
         <div className="mb-6">
-          <p className="text-sm font-semibold text-gray-600 mb-2">
-            Technology
-          </p>
+          <p className="text-sm font-semibold text-gray-600 mb-2">Technology</p>
 
           <ul className="flex flex-wrap gap-3">
             {tech.map((t) => (
@@ -76,7 +74,6 @@ export function MainProject({
               <li key={f}>{f}</li>
             ))}
           </ul>
-
         </div>
       </div>
     </div>
@@ -94,12 +91,13 @@ export function OtherProject({
 }: CardProps) {
   return (
     <div
-      className="border border-gray-300 rounded-xl p-8 
-                 flex gap-10 bg-white
-                 hover:shadow-md hover:shadow-gray-300 
-                 transition-shadow duration-300 mt-5 flex-1"
+      className="rounded-xl p-6 sm:p-8
+             flex flex-col sm:flex-row gap-6 sm:gap-8
+             bg-white
+             shadow-sm hover:shadow-md
+             transition-shadow duration-300 mt-5 flex-1"
     >
-      <div className="flex flex-col flex-1">
+      <div className="flex flex-col">
         <div className="flex justify-between">
           <img src={logo} alt={title} className="h-12 w-auto mb-4" />
           <p className="text-sm text-gray-400">
@@ -130,7 +128,7 @@ export function OtherProject({
         {link && (
           <a
             href={link}
-            className="mt-4 block border border-gray-300 rounded-md p-2 hover:bg-gray-50"
+            className="mt-4 block border border-gray-200 rounded-md p-2 hover:bg-gray-200 transition-shadow"
             target="_blank"
           >
             Explore Project
@@ -142,23 +140,20 @@ export function OtherProject({
 }
 
 type SkillCardProps = {
-  logo?: string,
-  skillName?: string,
-  className?: string,
-}
+  logo?: string;
+  skillName?: string;
+  className?: string;
+};
 
-
-export function SkillCard({
-  logo,
-  skillName,
-  className,
-}: SkillCardProps) {
+export function SkillCard({ logo, skillName, className }: SkillCardProps) {
   return (
     <>
-      <div className={`border rounded-xl border-gray-300 p-4 flex items-center gap-4 hover:shadow-md transition-shadow duration-300 ${className}`}>
+      <div
+        className={`border rounded-xl border-gray-300 p-4 flex items-center gap-4 hover:shadow-md transition-shadow duration-300 ${className}`}
+      >
         <img src={logo} alt={skillName || "logo"} className="h-8 w-auto" />
         <p className="text-lg font-medium">{skillName}</p>
       </div>
     </>
-  )
+  );
 }

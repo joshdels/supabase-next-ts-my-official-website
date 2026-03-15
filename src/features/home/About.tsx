@@ -1,10 +1,17 @@
 "use client";
 
 import { Github, Linkedin, FileUser } from "lucide-react";
+import Link from "next/link";
 
 export default function About() {
   return (
-    <div className="flex flex-col-reverse lg:flex-row items-center my-20 gap-1 lg:gap-20">
+    <div
+      id="about-section"
+      className="flex flex-col-reverse lg:flex-row items-center
+        my-20 gap-1 lg:gap-20 justify-center min-h-screen bg-gray-100
+        -mx-5 sm:-mx-5 md:-mx-10 lg:-mx-20 2xl:-mx-40 
+        px-5 sm:px-5 md:px-10 lg:px-20 2xl:px-40"
+    >
       <div className="flex-1 mt-10">
         <img
           src="profile.jpg"
@@ -12,32 +19,43 @@ export default function About() {
           className="w-auto h-auto md:w-120 md:h-auto object-cover rounded-xl shadow-lg"
         />
       </div>
-      <div className="flex-1">
+      <div className="flex-1 text-base lg:text-lg">
         <h1 className="text-3xl font-semibold mb-5">About Me</h1>
 
-        <p className="mb-5 text-justify">
+        <p className="mb-6 text-justify leading-relaxed">
           Hi, I'm <strong>Joshua De Leon</strong> from the Philippines. I
           specialize in enterprise-level{" "}
-          <strong>geospatial systems, data engineering, and automation</strong>,
-          helping organizations transform complex spatial and urban data into
-          actionable insights. My work spans location intelligence, real estate,
-          infrastructure analysis, and urban planning.
+          <strong>
+            geospatial systems, data engineering, and GIS automation across
+            desktop, web, and cloud environments.
+          </strong>{" "}
+          I help organizations transform complex spatial and urban data into
+          actionable insights, with work spanning location intelligence, real
+          estate, urban planning, and infrastructure analysis, as well as
+          environmental and hydrological studies.
         </p>
 
-        <p className="mb-5 text-justify">
-          I design and implement <strong>scalable WebGIS platforms, dashboards, and automated pipelines </strong>
-           capable of handling large datasets for high-performance analytics. My
-          solutions enable enterprises to perform site selection, land use
-          planning, housing analysis, accessibility mapping, and workflow
-          automation bridging technical expertise with strategic
-          decision-making.
+        <p className="mb-6 text-justify leading-relaxed text-gray-800">
+          I design and implement{" "}
+          <strong>
+            scalable WebGIS platforms, intuitive dashboards, and automated data
+            pipelines
+          </strong>{" "}
+          while optimizing <strong>GIS cloud infrastructure</strong>
+          to handle massive datasets with high-performance precision. My
+          solutions empower enterprises to master site selection, land use
+          planning, and accessibility mapping—bridging deep technical expertise
+          with <strong>user-centric design</strong> to drive strategic,
+          data-backed decision-making.
         </p>
 
-        <p className="mb-5 text-justify">
-          My mission is to empower organizations, developers, and urban planners
-          to make smarter, data-driven decisions. I simplify complex spatial
-          systems into clear, actionable insights using modern geospatial
-          technology, scalable infrastructure, and automated workflows.
+        <p className="mb-10 text-justify">
+          My goal is simple: to make{" "}
+          <strong>Geospatial simple, usable, and impactful</strong>. By
+          automating the "boring" parts of data processing and building
+          <strong>high-performance digital pipelines</strong>, I help
+          organizations focus on what matters most turning spatial insights into
+          real-world action.
         </p>
 
         <div className="flex items-center gap-4 mt-4">
@@ -61,15 +79,15 @@ export default function About() {
             <Linkedin size={32} />
           </a>
 
-          <a
-            href="https://docs.google.com/document/d/1cgLC5nZa1zEWc50NGUkG3fRfPHiJ6kymfsaN7GYC6_M/edit?tab=t.0"
+          <Link
+            href="/resume"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-500 hover:text-gray-700 transition-colors"
             aria-label="Resume"
           >
             <FileUser size={32} />
-          </a>
+          </Link>
         </div>
       </div>
     </div>
