@@ -4,8 +4,8 @@ export default function Calendar() {
   return (
     <>
       <div
-        className="calendly-inline-widget w-full h-250 sm:280 lg-240 xl:h-220"
-        data-url="https://calendly.com/assistantgisjosh/30min-gis-consultation"
+        className="calendly-inline-widget w-full h-screen"
+        data-url="https://calendly.com/assistantgisjosh/utilty-mapping-consultation"
       />
 
       <Script
