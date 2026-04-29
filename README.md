@@ -1,76 +1,36 @@
-# This is my official website.v1
-Check it out: [https://joshdels.topmapsolutions.com/](https://joshdels.topmapsolutions.com/)
-This includes my projects, freelancing templates, portfolio, invoices and even project management system
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-![Photo/](./images/webstiev1.PNG)
-
-
-### Features
-1. Built with Nextjs and Supabase
-2. Interactive MapLibre maps
-3. Mailbox integration with maps
-
-Im happy for your suggestions
-
----
 ## Getting Started
-Clone the repository
-```
-git clone https://github.com/joshdels/supabase-next-ts-my-official-website
-```
 
-### Create a .env file with your Supabase credentials: 
-more of this in the documentation 
-https://supabase.com/docs/guides/getting-started/quickstarts/nextjs
+First, run the development server:
 
-```
-NEXT_PUBLIC_SUPABASE_URL="YOUR SUPABASE URL"
-NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY = "YOUR SUPABASE KEY""
-SUPABASE_URL="KEY"
-SUPABASE_ANON_KEY="KEY"
-```
-
-### Install the neccessary and run after
-```
-npm install
-```
-
-```
+```bash
 npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-### Docker Setup for servers setup
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-```
-docker-compose -f docker-compose.prod.yml up -d --build
-docker-compose down -v
-```
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-### CI/CD Setup for VPS
-1. Generate SSH keys on your local machine
-```
-ssh-keygen -t rsa -b 4096 -C "github-action" -f github-action-key
-```
-2. Copy the public key to your server
-```
-ssh -i github-action-key.pub user@your_server_ip 
-```
-3. Add the key to authorized keys inside the server
-```
-ssh user@your_server_ip
-cat github-action-key.pub
-nano ~/.ssh/authorized_keys
-```
-4. Set permissions inside the server
-```
-chmod 700 ~/.ssh
-chmod 600 ~/.ssh/authorized_keys
-chown root:root /root/.ssh /root/.ssh/authorized_keys
-```
-5. Add secrets to GitHub Actions (.github/workflows/deploy.yml)
-```
-SERVER_IP = your server ip
-SSH_PRIVATE_KEY  = your ssh_genereated private key
-NEXT_PUBLIC_SUPABASE_URL="YOUR SUPABASE URL"
-NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY = "YOUR SUPABASE KEY""
-```
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

@@ -1,0 +1,48 @@
+.navbar {
+  border-bottom: 1px solid var(--color-opacity);
+  display: flex;
+  flex-direction: row;
+  height: 100px;
+}
+
+.navbar span {
+  color: var(--color-text);
+  letter-spacing: 0.1rem;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.navbar-content {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 2rem;
+  width: 100%;
+}
+
+.navbar-menu {
+  display: none;
+}
+
+@media screen and (width >= 768px) {
+  .navbar-menu {
+    display: inline;
+    display: flex;
+    gap: 1rem;
+  }
+
+  .mobile-menu {
+    display: none;
+  }
+
+  .navbar-content {
+    margin: var(--margin-md);
+  }
+}
+
+@media screen and (width >= 1200px) {
+  .navbar-content {
+    margin: var(--margin-lg);
+  }
+}
