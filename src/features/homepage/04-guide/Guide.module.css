@@ -1,0 +1,12 @@
+.image {
+  aspect-ratio: 1 / 1;
+  max-width: 600px;
+  position: relative;
+  width: 100%;
+}
+
+.aside-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}

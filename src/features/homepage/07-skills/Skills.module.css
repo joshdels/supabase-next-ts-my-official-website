@@ -1,0 +1,28 @@
+.skill-container h2,
+.skill-container p,
+.skill-container h4 {
+  color: var(--color-bg);
+  width: 100%;
+}
+
+.list {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(1, 1fr);
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+@media screen and (width >= 768px) {
+  .list {
+    gap: 5rem;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (width >= 1200px) {
+  .list {
+    gap: 5rem;
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
