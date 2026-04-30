@@ -6,9 +6,8 @@ import PlanSection from '@/features/homepage/05-plan/Plan';
 import CaseStudySection from '@/features/homepage/06-discover/DiscoverSection';
 import SkillSection from '@/features/homepage/07-skills/Skills';
 import ContactSection from '@/features/homepage/08-contact/Contact';
-import FooterSection from '@/shared/components/footer/Footer';
+import FooterSection from '@/shared/components/footer/footer';
 import NavbarSection from '@/shared/components/navbar/Navbar';
-
 
 export default function Home() {
   return (
