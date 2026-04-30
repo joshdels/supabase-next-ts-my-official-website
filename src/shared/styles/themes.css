@@ -3,8 +3,10 @@
 :root {
   /* colors */
   --color-bg: #f5f0e8;
+  --color-bg-dark: #edeadf;
   --color-text: #3d405b;
   --color-cta: #e07a5f;
+  --color-cta-hover: #ca674b;
   --color-subtle: #81b29a;
   --color-muted: #7f8086;
   --color-opacity: #c0c1c9;

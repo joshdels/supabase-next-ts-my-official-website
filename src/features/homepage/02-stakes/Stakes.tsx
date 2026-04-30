@@ -1,3 +1,4 @@
+import { ButtonMain } from '@/shared/components/buttons/Buttons';
 import StakeCard, { stakes } from './Card';
 import styles from './Stakes.module.css';
 
@@ -6,7 +7,7 @@ export default function StakesSection() {
     <>
       <div className="container">
         <div className="container-content">
-          <div className="container-context">
+          <main className="container-context">
             <span className="font-orange">// the problems</span>
             <h2 className="font-heading">
               Bad location decisions are{' '}
@@ -18,22 +19,22 @@ export default function StakesSection() {
               because nobody could read it clearly.
             </p>
             <p className="">
-              Without a spatial lens, your team is making million-peso decisions
+              Without a spatial clarity, your team is making thousand-dollar decisions
               on guesswork.
             </p>
-            <section>
-              <button className="btn-primary">get in touch</button>
-            </section>
-          </div>
-          <div className={styles['card-section']}>
-            {stakes.map((item, index) => (
-              <StakeCard
-                key={index}
-                title={item.title}
-                description={item.description}
-              />
-            ))}
-          </div>
+            <ButtonMain touchOnly={true} />
+          </main>
+          <main>
+            <div className={styles['card-section']}>
+              {stakes.map((item, index) => (
+                <StakeCard
+                  key={index}
+                  title={item.title}
+                  description={item.description}
+                />
+              ))}
+            </div>
+          </main>
         </div>
       </div>
     </>

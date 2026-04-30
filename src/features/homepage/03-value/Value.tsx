@@ -1,32 +1,33 @@
+import ValueCard, { value } from './ValueCard';
+import styles from './Value.module.css';
+import { ButtonMain } from '@/shared/components/buttons/Buttons';
+
 export default function ValueSection() {
   return (
     <>
-      <div className="container">
+      <div className="container-dark">
         <div className="container-content">
-          <div className="container-context">
-            <span className="font-green">//what i do</span>
+          <div className={`container-context ${styles['value-container']}`}>
+            <span className="font-green">// what i do</span>
             <h2>
-              I turn raw geographic data into decisions your whole team can act
-              on
+              I turn raw geographic data into decisions{' '}
+              <strong> your whole team can act on</strong>
             </h2>
-            <h2>Three pillars:</h2>
-            <div>
-              <p>
-                Land Planning Site suitability, zoning analysis, and land use
-                classification — so your planning team knows exactly what
-                they're working with before a single permit is filed.
-              </p>
-              <p>
-                Real Estate Location intelligence, proximity analysis, and
-                market mapping — so your developers and investors see the full
-                picture of a site before committing.
-              </p>
-              <p>
-                Urban GIS Infrastructure mapping, flood risk, road networks, and
-                population density — so your city planners and stakeholders have
-                data they can actually present and defend.
-              </p>
+            <p>
+              Whether you need a site suitability map, a zoning analysis, or an
+              interactive web map for your stakeholders — I build it clean,
+              fast, and readable by people who aren't GIS experts.
+            </p>
+            <div className={styles['card-container']}>
+              {value.map((item, index) => (
+                <ValueCard
+                  key={index}
+                  title={item.title}
+                  description={item.description}
+                />
+              ))}
             </div>
+            <ButtonMain workOnly={true} />
           </div>
         </div>
       </div>

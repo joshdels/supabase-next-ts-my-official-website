@@ -1,9 +1,10 @@
+import { ButtonContact } from '@/shared/components/buttons/Buttons';
 import styles from './Contact.module.css';
 
 export default function ContactSection() {
   return (
     <>
-      <div className="container">
+      <div id="contact" className="container">
         <div className="container-content-center">
           <div className="container-context">
             <span className="font-orange">// get in touch</span>
@@ -17,12 +18,9 @@ export default function ContactSection() {
             </p>
             <div>
               <button className="btn-primary">send me a message</button>
-              <p>joshdels@topmapsolutions.com</p>
             </div>
-            <div className={styles['button-lower']}>
-              <button className="btn-secondary">github</button>
-              <button className="btn-secondary">linkedin</button>
-            </div>
+            <p>joshdels@topmapsolutions.com</p>
+            <ButtonContact />
           </div>
         </div>
       </div>

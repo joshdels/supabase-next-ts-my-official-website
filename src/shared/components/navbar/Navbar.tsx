@@ -18,29 +18,23 @@ export default function NavbarSection() {
         </div>
 
         <div className={styles['navbar-menu']}>
-          <Link href={'/projects'}>
-            <span>Projects</span>
-          </Link>
-          <Link href={'/case-study'}>
-            <span>Case Study</span>
-          </Link>
-          <Link href={'/case-study'}>
-            <span>Contact</span>
-          </Link>
+          <Link href={'/'}>Projects</Link>
+          <Link href={'/'}>Case Study</Link>
+          <Link href={'/'}>Contact</Link>
         </div>
 
         <button
           onClick={() => setIsOpen(!isOpen)}
           className={styles['mobile-menu']}
         >
-          <Menu />
+          <Menu color="currentColor" />
         </button>
 
         {isOpen && (
           <div className={styles['mobile-dropdown']}>
-            <Link href={'/case-study'}>Case Study</Link>
-            <Link href={'/tools'}>Tools</Link>
-            <Link href={'/login'}>Member</Link>
+            <Link href={'/'}>Case Study</Link>
+            <Link href={'/'}>Tools</Link>
+            <Link href={'/'}>Member</Link>
           </div>
         )}
       </div>

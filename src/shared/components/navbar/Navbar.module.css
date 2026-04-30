@@ -21,6 +21,18 @@
   width: 100%;
 }
 
+.navbar-menu a {
+  color: var(--color-text);
+  letter-spacing: 0.1rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+}
+
+.navbar-menu a:hover {
+  color: var(--color-cta);
+}
+
 .navbar-menu {
   display: none;
 }

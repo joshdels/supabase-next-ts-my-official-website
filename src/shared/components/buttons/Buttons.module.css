@@ -1,0 +1,12 @@
+.button-section {
+  display: flex;
+  gap: 2rem;
+}
+
+.button-lower {
+  align-items: center;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  padding: 2rem;
+}

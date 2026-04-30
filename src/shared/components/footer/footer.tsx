@@ -1,13 +1,24 @@
+import styles from './Footer.module.css';
+
 export default function FooterSection() {
   return (
     <>
-      <div className="container">
-        <div className="container-content">
-          FOOTER Left: Juan · GIS Developer Davao, Philippines Center: Projects
-          · Skills · About · Contact Right: Open for freelance and full-time GIS
-          roles Bottom line: Built by hand with HTML, CSS, and a love for maps.
-          · 2025
-        </div>
+      <div className="container-footer">
+        <footer className={styles['footer']}>
+          <div>
+            <div className={styles.owner}>
+              <h4>Joshua De Leon</h4>
+              <h4>-</h4>
+              <h4>GIS Analyst/Developer</h4>
+            </div>
+            <span className={styles.location}>Davao, Philippines</span>
+          </div>
+          <div className={styles.navigation}>
+            <p>Projects</p>
+            <p>Contact</p>
+            <p>About</p>
+          </div>
+        </footer>
       </div>
     </>
   );

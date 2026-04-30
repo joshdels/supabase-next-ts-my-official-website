@@ -1,16 +1,18 @@
-export default function CaseStudySection() {
+export default function DiscoverSection() {
   return (
     <>
-      <div className="container">
+      <div id="discover" className="container">
         <div className="container-content">
           <div className="container-context">
-            <span className="font-orange">projects & case-studies</span>
-            <h2>Work that speaks for itself</h2>
+            <span className="font-orange">// projects & case-studies</span>
             <h2>
-              Intro: Real projects across land planning, urban analysis, and
-              real estate mapping — built with open source tools and a focus on
-              clarity.
+              Work that speaks <strong>for itself</strong>
             </h2>
+            <p>
+              Real projects across land planning, urban analysis, and real
+              estate mapping — built with open source tools and a focus on
+              clarity.
+            </p>
 
             <div>
               <p>
