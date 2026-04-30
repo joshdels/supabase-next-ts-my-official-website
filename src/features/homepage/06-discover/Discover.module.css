@@ -1,0 +1,36 @@
+.structure {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.structure-more a {
+  color: var(--color-cta);
+  font-family: var(--font-mono);
+  font-size: 1.2rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  transition: all 0.2s ease-in-out;
+}
+
+.structure-more a:hover {
+  color: var(--color-cta-hover);
+}
+
+.structure-card {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(1, 1fr);
+}
+
+@media screen and (width >= 768px) {
+  .structure-card {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (width >= 1200px) {
+  .structure-card {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
