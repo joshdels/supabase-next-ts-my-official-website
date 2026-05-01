@@ -5,8 +5,8 @@ import { caseStudies, projects } from '@/lib/api';
 import CaseStudyCard from './CaseStudy/CaseStudyCard';
 
 export default async function DiscoverSection() {
-  const studies = await caseStudies();
-  const projectsData = await projects();
+  const studies = (await caseStudies()).slice(0, 3);
+  const projectsData = (await projects()).slice(0, 3);
 
   return (
     <>
@@ -28,7 +28,7 @@ export default async function DiscoverSection() {
               {projectsData.length > 0 ? (
                 <div className={styles['structure-card']}>
                   {projectsData.map((item: any, index: number) => (
-                    <Link key={item.id} href={`/project/${item.id}`}>
+                    <Link key={item.id} href={`/projects/${item.id}`}>
                       <ProjectCard key={index} {...item} />
                     </Link>
                   ))}
@@ -37,7 +37,9 @@ export default async function DiscoverSection() {
                 <p>No projects yet.</p>
               )}
               <div className={styles['structure-more']}>
-                <Link href={'/project'}>show more ...</Link>
+                <Link href={'/projects'} prefetch={false}>
+                  show more ...
+                </Link>
               </div>
             </section>
 

@@ -1,8 +1,13 @@
 .navbar {
+  background-color: var(--color-bg);
   border-bottom: 1px solid var(--color-opacity);
   display: flex;
   flex-direction: row;
   height: 100px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 50;
 }
 
 .navbar span {
@@ -13,7 +18,6 @@
 }
 
 .navbar-content {
-  align-items: center;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -21,24 +25,22 @@
   width: 100%;
 }
 
-.navbar-menu a {
-  color: var(--color-text);
-  letter-spacing: 0.1rem;
-  text-decoration: none;
-  text-transform: uppercase;
-  transition: color 0.2s ease;
-}
-
-.navbar-menu a:hover {
-  color: var(--color-cta);
-}
-
 .navbar-menu {
   display: none;
 }
 
+.navbar-menu span {
+  font-size: 0.9rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.navbar-menu span:hover {
+  color: var(--color-cta);
+}
+
 @media screen and (width >= 768px) {
   .navbar-menu {
+    align-items: center;
     display: inline;
     display: flex;
     gap: 1rem;

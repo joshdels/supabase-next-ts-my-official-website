@@ -1,5 +1,7 @@
-import { ButtonContact } from '@/shared/components/buttons/Buttons';
-import styles from './Contact.module.css';
+import {
+  ButtonContact,
+  ButtonReachout,
+} from '@/shared/components/buttons/Buttons';
 
 export default function ContactSection() {
   return (
@@ -17,7 +19,7 @@ export default function ContactSection() {
               visualize yet — reach out. I respond within 24 hours.
             </p>
             <div>
-              <button className="btn-primary">send me a message</button>
+              <ButtonReachout />
             </div>
             <p>joshdels@topmapsolutions.com</p>
             <ButtonContact />

@@ -3,7 +3,7 @@ import styles from './ProjectCard.module.css';
 import Image from 'next/image';
 
 type ProjectCardProps = {
-  title: string;
+  name: string;
   description: string;
   image: string;
   is_highlight?: boolean;
@@ -12,7 +12,7 @@ type ProjectCardProps = {
 };
 
 export default function ProjectCard({
-  title,
+  name,
   description,
   image,
   tags,
@@ -21,11 +21,11 @@ export default function ProjectCard({
   return (
     <div className={styles.card}>
       <aside className={styles['image-wrapper']}>
-        <Image src={image || ''} alt={title} fill className={styles.image} />
+        <Image src={image || ''} alt={name} fill className={styles.image} />
       </aside>
 
       <main className={styles.content}>
-        <h4>{title}</h4>
+        <h4>{name}</h4>
         <span className={styles.date}>{formatDate(created_at)}</span>
         <p>{description}</p>
 

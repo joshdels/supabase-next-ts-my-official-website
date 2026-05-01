@@ -5,31 +5,29 @@ import styles from './ProjectPreview.module.css';
 import ProjectBlocks from './ProjectBlocks';
 
 export default async function ProjectPreview({ id }: { id: string }) {
-  const study = await project(Number(id));
+  const projectData = await project(Number(id));
 
   return (
-    <div className="page-wrapper">
-      <div className="page-wrapper-grid">
-        <div className={styles.container}>
-          <div className={styles.content}>
-            <div className={styles.heading}>
-              <p>{formatDate(study.created_at)}</p>
+    <div className="container">
+      <div className="container-content">
+        <div className="container-context">
+          <div className='container-topspacer'>
+            <p>{formatDate(projectData.created_at)}</p>
 
-              <h1>{study.title}</h1>
-              <p>{study.description}</p>
+            <h1>{projectData.name}</h1>
+            <p>{projectData.description}</p>
+
+            <div className={styles['image-wrapper']}>
+              <Image
+                src={projectData.image || '/fallback.png'}
+                alt={projectData.name}
+                fill
+                className={styles.image}
+              />
             </div>
-          </div>
 
-          <div className={styles['image-wrapper']}>
-            <Image
-              src={study.image || '/fallback.png'}
-              alt={study.title}
-              fill
-              className={styles.image}
-            />
+            <ProjectBlocks blocks={projectData.blocks} />
           </div>
-
-          <ProjectBlocks blocks={study.blocks} />
         </div>
       </div>
     </div>

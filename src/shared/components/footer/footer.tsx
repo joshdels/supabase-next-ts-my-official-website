@@ -1,4 +1,8 @@
+'use client';
+
+import { scrollToSection } from '@/utils/scrollToPage';
 import styles from './Footer.module.css';
+import Link from 'next/link';
 
 export default function FooterSection() {
   return (
@@ -13,9 +17,15 @@ export default function FooterSection() {
             <span className={styles.location}>Davao, Philippines</span>
           </div>
           <div className={styles.navigation}>
-            <p>Projects</p>
-            <p>Contact</p>
-            <p>About</p>
+            <button
+              className="btn-navigation"
+              onClick={() => scrollToSection('discover')}
+            >
+              My Works
+            </button>
+            <Link href={'/contact'}>
+              <button className="btn-primary">Contact</button>
+            </Link>
           </div>
         </footer>
       </div>

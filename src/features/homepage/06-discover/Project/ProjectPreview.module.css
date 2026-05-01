@@ -1,31 +1,3 @@
-.container {
-  display: flex;
-  flex-direction: column;
-  gap: 2.5rem;
-  min-height: 92vh;
-  padding: 5rem 0;
-}
-
-.content {
-  margin: 0 auto;
-  max-width: 800px;
-  width: 100%;
-}
-
-.heading {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-}
-
-.meta {
-  align-items: center;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: space-between;
-}
-
 .date {
   color: var(--color-gray-600);
   font-size: 0.85rem;
@@ -39,9 +11,8 @@
 }
 
 .tag {
-  background: var(--color-gray-100);
+  background: var(--color-bg);
   border: 1px solid var(--color-gray-300);
-  border-radius: 0.25rem;
   color: var(--color-gray-600);
   font-size: 0.8rem;
   letter-spacing: 0.25rem;
@@ -66,7 +37,6 @@
 .image-wrapper {
   background: #f9fafb;
   border: 1px solid #e5e7eb;
-  border-radius: 12px;
   height: 20rem;
   overflow: hidden;
   position: relative;
@@ -85,7 +55,6 @@
   .image-wrapper {
     background: #f9fafb;
     border: 1px solid #e5e7eb;
-    border-radius: 12px;
     height: 20rem;
     overflow: hidden;
     position: relative;

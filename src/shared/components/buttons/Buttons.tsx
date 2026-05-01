@@ -63,3 +63,24 @@ export function ButtonContact() {
     </>
   );
 }
+
+export function ButtonReachout() {
+  return (
+    <>
+      <div>
+        <div className={styles['button-lower']}>
+          <Link href="" className="btn-primary">
+            Send me a message
+          </Link>
+          <Link
+            href="https://calendly.com/assistantgisjosh/urban-consultation"
+            target="_blank"
+            className="btn-secondary"
+          >
+            Reserve a call
+          </Link>
+        </div>
+      </div>
+    </>
+  );
+}

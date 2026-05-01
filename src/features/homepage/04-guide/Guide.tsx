@@ -35,7 +35,7 @@ export default function GuideSection() {
 
           <aside className={styles['aside-container']}>
             <div className={styles.image}>
-              <Image src="/images/profile.jpg" alt="profile" fill />
+              <Image src="/images/profile1.png" alt="profile" fill />
             </div>
             <ButtonContact />
           </aside>

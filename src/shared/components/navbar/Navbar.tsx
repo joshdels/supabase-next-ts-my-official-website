@@ -18,9 +18,16 @@ export default function NavbarSection() {
         </div>
 
         <div className={styles['navbar-menu']}>
-          <Link href={'/'}>Projects</Link>
-          <Link href={'/'}>Case Study</Link>
-          <Link href={'/'}>Contact</Link>
+          <Link href={'/'} className='btn-navigation'>
+            <span>My Works</span>
+          </Link>
+          <Link href={'/contact'}>
+            <button
+              className="btn-primary"
+            >
+              Contact
+            </button>
+          </Link>
         </div>
 
         <button
@@ -32,7 +39,9 @@ export default function NavbarSection() {
 
         {isOpen && (
           <div className={styles['mobile-dropdown']}>
-            <Link href={'/'} className='btn-primary'>Case Study</Link>
+            <Link href={'/'} className="btn-primary">
+              Case Study
+            </Link>
             <Link href={'/'}>Tools</Link>
             <Link href={'/'}>Member</Link>
           </div>
