@@ -1,3 +1,4 @@
+import { formatDate } from '@/utils/date';
 import styles from './ProjectCard.module.css';
 import Image from 'next/image';
 
@@ -20,12 +21,12 @@ export default function ProjectCard({
   return (
     <div className={styles.card}>
       <aside className={styles['image-wrapper']}>
-        <Image src={image} alt={title} fill className={styles.image} />
+        <Image src={image || ''} alt={title} fill className={styles.image} />
       </aside>
 
       <main className={styles.content}>
         <h4>{title}</h4>
-        <span className={styles.date}>{created_at}</span>
+        <span className={styles.date}>{formatDate(created_at)}</span>
         <p>{description}</p>
 
         <div className={styles.tags}>

@@ -8,7 +8,6 @@ export default function FooterSection() {
           <div>
             <div className={styles.owner}>
               <h4>Joshua De Leon</h4>
-              <h4>-</h4>
               <h4>GIS Analyst/Developer</h4>
             </div>
             <span className={styles.location}>Davao, Philippines</span>

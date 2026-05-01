@@ -1,7 +1,8 @@
-import ProjectCard from './ProjectCard';
+import ProjectCard from './Project/ProjectCard';
 import styles from './Discover.module.css';
 import Link from 'next/link';
 import { caseStudies, projects } from '@/lib/api';
+import CaseStudyCard from './CaseStudy/CaseStudyCard';
 
 export default async function DiscoverSection() {
   const studies = await caseStudies();
@@ -27,14 +28,16 @@ export default async function DiscoverSection() {
               {projectsData.length > 0 ? (
                 <div className={styles['structure-card']}>
                   {projectsData.map((item: any, index: number) => (
-                    <ProjectCard key={index} {...item} />
+                    <Link key={item.id} href={`/project/${item.id}`}>
+                      <ProjectCard key={index} {...item} />
+                    </Link>
                   ))}
                 </div>
               ) : (
                 <p>No projects yet.</p>
               )}
               <div className={styles['structure-more']}>
-                <Link href={'/'}>show more ...</Link>
+                <Link href={'/project'}>show more ...</Link>
               </div>
             </section>
 
@@ -43,14 +46,17 @@ export default async function DiscoverSection() {
               {studies.length > 0 ? (
                 <div className={styles['structure-card']}>
                   {studies.map((item: any, index: number) => (
-                    <ProjectCard key={index} {...item} />
+                    <Link key={item.id} href={`/case-studies/${item.id}`}>
+                      <CaseStudyCard key={index} {...item} />
+                    </Link>
                   ))}
                 </div>
               ) : (
                 <p>No Case Studies Available</p>
               )}
+
               <div className={styles['structure-more']}>
-                <Link href={'/'}>show more ...</Link>
+                <Link href={'/case-studies'}>show more ...</Link>
               </div>
             </section>
           </div>
