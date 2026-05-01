@@ -32,7 +32,7 @@ export default function NavbarSection() {
 
         {isOpen && (
           <div className={styles['mobile-dropdown']}>
-            <Link href={'/'}>Case Study</Link>
+            <Link href={'/'} className='btn-primary'>Case Study</Link>
             <Link href={'/'}>Tools</Link>
             <Link href={'/'}>Member</Link>
           </div>
