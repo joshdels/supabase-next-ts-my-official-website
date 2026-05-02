@@ -3,8 +3,7 @@
   flex-direction: column;
   gap: 2rem;
   margin: 0 auto;
-  max-width: 800px;
-  padding: 2rem 1rem;
+  padding-top: 5rem;
 }
 
 .heading {
@@ -22,17 +21,17 @@
 }
 
 .image {
-  border-radius: 12px;
   overflow: hidden;
   position: relative;
   width: 100%;
 }
 
 .quote {
-  background: #fafafa;
-  border-left: 4px solid #ddd;
-  border-radius: 8px;
-  font-size: 1.2rem;
+  background: var(--color-card-background);
+  border-left: 4px solid var(--color-cta);
+  color: var(--color-text);
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
   font-style: italic;
   line-height: 1.6;
   padding: 1.5rem 2rem;

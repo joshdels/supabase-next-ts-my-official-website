@@ -1,17 +1,17 @@
 import Image from 'next/image';
 import { project } from '@/lib/api';
 import { formatDate } from '@/utils/date';
-import styles from './ProjectPreview.module.css';
 import ProjectBlocks from './ProjectBlocks';
+import styles from './ProjectPreview.module.css';
 
 export default async function ProjectPreview({ id }: { id: string }) {
   const projectData = await project(Number(id));
 
   return (
-    <div className="container">
+    <div className="container-preview">
       <div className="container-content">
         <div className="container-context">
-          <div className='container-topspacer'>
+          <div className="container-topspacer">
             <p>{formatDate(projectData.created_at)}</p>
 
             <h1>{projectData.name}</h1>
@@ -19,7 +19,7 @@ export default async function ProjectPreview({ id }: { id: string }) {
 
             <div className={styles['image-wrapper']}>
               <Image
-                src={projectData.image || '/fallback.png'}
+                src={projectData.image || '/images/fallback.png'}
                 alt={projectData.name}
                 fill
                 className={styles.image}

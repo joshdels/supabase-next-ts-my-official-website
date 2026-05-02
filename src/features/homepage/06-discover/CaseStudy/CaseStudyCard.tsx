@@ -21,7 +21,7 @@ export default function CaseStudyCard({
   return (
     <div className={styles.card}>
       <aside className={styles['image-wrapper']}>
-        <Image src={image || ''} alt={title} fill className={styles.image} />
+        <Image src={image || 'images/fallback.png'} alt={title} fill className={styles.image} />
       </aside>
 
       <main className={styles.content}>

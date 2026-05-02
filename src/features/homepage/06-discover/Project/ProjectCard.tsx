@@ -21,7 +21,12 @@ export default function ProjectCard({
   return (
     <div className={styles.card}>
       <aside className={styles['image-wrapper']}>
-        <Image src={image || ''} alt={name} fill className={styles.image} />
+        <Image
+          src={image || '/images/fallback.png'}
+          alt={name}
+          fill
+          className={styles.image}
+        />
       </aside>
 
       <main className={styles.content}>

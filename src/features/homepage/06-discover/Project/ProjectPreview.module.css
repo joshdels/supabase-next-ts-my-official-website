@@ -35,9 +35,7 @@
 }
 
 .image-wrapper {
-  background: #f9fafb;
-  border: 1px solid #e5e7eb;
-  height: 20rem;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
   position: relative;
   width: 100%;
@@ -53,9 +51,7 @@
   }
 
   .image-wrapper {
-    background: #f9fafb;
-    border: 1px solid #e5e7eb;
-    height: 20rem;
+    aspect-ratio: 16 / 9;
     overflow: hidden;
     position: relative;
     width: 100%;
@@ -66,18 +62,10 @@
   .tags {
     gap: 1.5rem;
   }
-
-  .image-wrapper {
-    height: 40rem;
-  }
 }
 
 @media screen and (width >= 1024px) {
   .tags {
     gap: 2rem;
-  }
-
-  .image-wrapper {
-    height: 60rem;
   }
 }

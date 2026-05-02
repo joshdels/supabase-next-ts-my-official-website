@@ -68,7 +68,7 @@ export function ButtonReachout() {
   return (
     <>
       <div>
-        <div className={styles['button-lower']}>
+        <div className={styles['button-reachout']}>
           <Link href="" className="btn-primary">
             Send me a message
           </Link>

@@ -6,7 +6,27 @@
 .button-lower {
   align-items: center;
   display: flex;
+  flex-direction: column;
   gap: 1rem;
   justify-content: center;
   padding: 2rem;
+}
+
+.button-reachout {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  padding: 2rem;
+}
+
+@media screen and (width >= 768px) {
+  .button-lower {
+    flex-direction: row;
+  }
+
+  .button-reachout {
+    flex-direction: row;
+  }
 }
