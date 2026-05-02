@@ -10,7 +10,7 @@ export default function HeroSection() {
           <div className={styles['container-hero']}>
             <main>
               <span className="font-orange">
-                GIS Developer · Davao, Philippines
+                GIS Analyst/Developer · Davao, Philippines
               </span>
               <h1>
                 Your land data has a story <em>I help you read it</em>{' '}

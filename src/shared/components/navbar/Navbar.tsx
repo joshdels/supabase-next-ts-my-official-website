@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
-import { Menu } from 'lucide-react';
+import { ArrowUpFromLine, Menu } from 'lucide-react';
 import styles from './Navbar.module.css';
 
 export default function NavbarSection() {
@@ -18,15 +18,11 @@ export default function NavbarSection() {
         </div>
 
         <div className={styles['navbar-menu']}>
-          <Link href={'/'} className='btn-navigation'>
+          <Link href={'/'} className="btn-navigation">
             <span>My Works</span>
           </Link>
           <Link href={'/contact'}>
-            <button
-              className="btn-primary"
-            >
-              Contact
-            </button>
+            <button className="btn-primary">Contact</button>
           </Link>
         </div>
 
@@ -34,16 +30,24 @@ export default function NavbarSection() {
           onClick={() => setIsOpen(!isOpen)}
           className={styles['mobile-menu']}
         >
-          <Menu color="currentColor" />
+          <Menu />
         </button>
 
         {isOpen && (
-          <div className={styles['mobile-dropdown']}>
-            <Link href={'/'} className="btn-primary">
-              Case Study
-            </Link>
-            <Link href={'/'}>Tools</Link>
-            <Link href={'/'}>Member</Link>
+          <div className={styles.overlay}>
+            <div className={styles['mobile-dropdown']}>
+              <Link href={'/'}>Home</Link>
+              <Link href={'/'}>My Work</Link>
+              <Link href={'/contact'} className="btn-primary">
+                Contact
+              </Link>
+              <button
+                className={styles['mobile-button']}
+                onClick={() => setIsOpen(!isOpen)}
+              >
+                <ArrowUpFromLine size={24} />
+              </button>
+            </div>
           </div>
         )}
       </div>
