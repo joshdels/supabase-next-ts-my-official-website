@@ -12,8 +12,13 @@ export default async function ProjectPreview({ id }: { id: string }) {
       <div className="container-content">
         <div className="container-context">
           <div className="container-topspacer">
-            <p>{formatDate(projectData.created_at)}</p>
+            <p className={styles.date}>{formatDate(projectData.created_at)}</p>
 
+            <div className={styles.tags}>
+              {projectData.tags.map((item: any) => (
+                <span className={styles.tag}>{item}</span>
+              ))}
+            </div>
             <h1>{projectData.name}</h1>
             <p>{projectData.description}</p>
 

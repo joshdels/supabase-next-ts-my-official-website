@@ -52,7 +52,6 @@ p {
   color: var(--color-text);
   font-family: var(--font-body);
   line-height: 1.5;
-  
 }
 
 .font-orange {
@@ -69,4 +68,16 @@ p {
   letter-spacing: 0.2rem;
   text-transform: uppercase;
   word-spacing: 0.2rem;
+}
+
+.font-strong {
+  color: var(--color-text);
+  font-weight: 700;
+}
+
+.font-italic {
+  color: var(--color-cta);
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-style: italic;
 }

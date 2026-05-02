@@ -6,7 +6,7 @@
 .button-lower {
   align-items: center;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 1rem;
   justify-content: center;
   padding: 2rem;

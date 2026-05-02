@@ -14,7 +14,7 @@ export const stakes: StakeCardProps[] = [
   {
     title: 'Real Estate Firms',
     description:
-      'Missing location intelligence that separates a good investment from a costly mistake.',
+      'Missing location information that separates a good investment from a costly mistake.',
   },
   {
     title: 'Urban Planners',

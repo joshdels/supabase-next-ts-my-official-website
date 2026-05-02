@@ -15,8 +15,9 @@ export default function ValueSection() {
             </h2>
             <p>
               Whether you need a site suitability map, a zoning analysis, or an
-              interactive web map for your stakeholders — I build it clean,
-              fast, and readable by people who aren't GIS experts.
+              interactive web map for your stakeholders, I build it clean, fast,
+              and readable by people who aren't GIS experts. Real Urban Impacts
+              of what you really need
             </p>
             <div className={styles['card-container']}>
               {value.map((item, index) => (

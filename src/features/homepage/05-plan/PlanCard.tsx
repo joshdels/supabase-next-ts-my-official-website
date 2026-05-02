@@ -11,13 +11,13 @@ export const plans: PlanCardProps[] = [
     index: '01',
     title: 'Tell me about your land',
     details:
-      "Share your area, your data, and what decision you're trying to make. No GIS knowledge required — just tell me the problem.",
+      "Share your problem and frustration, your data have and wanted, and what decision you're trying to make. No GIS knowledge required just tell.",
   },
   {
     index: '02',
     title: 'I build your spatial solution',
     details:
-      'From site analysis to interactive web maps, I handle the technical side completely — clean, documented, and on time.',
+      'From site analysis to interactive web maps, I handle the technical side complexity that is clean, documented, and on time.',
   },
   {
     index: '03',

@@ -12,8 +12,12 @@ export default async function CaseStudyPreview({ id }: { id: string }) {
       <div className="container-content">
         <div className="container-context">
           <div className="container-topspacer ">
-            <p>{formatDate(study.created_at)}</p>
-
+            <p className={styles.date}>{formatDate(study.created_at)}</p>
+            <div className={styles.tags}>
+              {study.tags.map((item: any) => (
+                <span className={styles.tag}>{item}</span>
+              ))}
+            </div>
             <h1>{study.title}</h1>
             <p>{study.description}</p>
 
