@@ -7,3 +7,9 @@ export const formatDate = (dateStr?: string) => {
     year: "numeric",
   });
 };
+
+export const sortByDateDesc = <T extends { created_at: string }>(data: T[]) => {
+  return [...data].sort(
+    (a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+  );
+};

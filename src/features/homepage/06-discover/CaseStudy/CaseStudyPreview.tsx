@@ -14,8 +14,10 @@ export default async function CaseStudyPreview({ id }: { id: string }) {
           <div className="container-topspacer ">
             <p className={styles.date}>{formatDate(study.created_at)}</p>
             <div className={styles.tags}>
-              {study.tags.map((item: any) => (
-                <span className={styles.tag}>{item}</span>
+              {study.tags.map((item: any, index: number) => (
+                <span key={index} className={styles.tag}>
+                  {item}
+                </span>
               ))}
             </div>
             <h1>{study.title}</h1>
@@ -27,6 +29,7 @@ export default async function CaseStudyPreview({ id }: { id: string }) {
                 alt={study.title}
                 fill
                 className={styles.image}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
             </div>
 

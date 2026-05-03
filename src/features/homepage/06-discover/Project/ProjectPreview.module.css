@@ -41,7 +41,7 @@
 }
 
 .image {
-  background-color: var(--color-bg);
+  background-color: var(--color-bg-dark);
   object-fit: contain;
 }
 

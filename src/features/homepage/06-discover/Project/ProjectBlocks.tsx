@@ -31,6 +31,7 @@ function renderBlock(block: any) {
             height={700}
             style={{ width: '100%', height: 'auto' }}
           />
+          <div key={block.id}>{block.text}</div>
         </div>
       );
 

@@ -15,8 +15,10 @@ export default async function ProjectPreview({ id }: { id: string }) {
             <p className={styles.date}>{formatDate(projectData.created_at)}</p>
 
             <div className={styles.tags}>
-              {projectData.tags.map((item: any) => (
-                <span className={styles.tag}>{item}</span>
+              {projectData.tags.map((item: any, index: number) => (
+                <span key={index} className={styles.tag}>
+                  {item}
+                </span>
               ))}
             </div>
             <h1>{projectData.name}</h1>
@@ -28,6 +30,7 @@ export default async function ProjectPreview({ id }: { id: string }) {
                 alt={projectData.name}
                 fill
                 className={styles.image}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
             </div>
 

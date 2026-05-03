@@ -21,7 +21,13 @@ export default function CaseStudyCard({
   return (
     <div className={styles.card}>
       <aside className={styles['image-wrapper']}>
-        <Image src={image || 'images/fallback.png'} alt={title} fill className={styles.image} />
+        <Image
+          src={image || 'images/fallback.png'}
+          alt={title}
+          fill
+          className={styles.image}
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        />
       </aside>
 
       <main className={styles.content}>

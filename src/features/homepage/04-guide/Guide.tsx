@@ -9,7 +9,7 @@ export default function GuideSection() {
         <div className="container-content">
           <div className={styles['container-guide']}>
             <main>
-              <span className="font-orange">// about me</span>
+              <span className="font-orange">{`// about me`}</span>
               <h2>
                 You need someone who speaks both GIS and{' '}
                 <strong>plain language.</strong>

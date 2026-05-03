@@ -34,7 +34,6 @@
 }
 
 .image-wrapper {
-  background: #f9fafb;
   border: 1px solid #e5e7eb;
   height: 20rem;
   overflow: hidden;
@@ -43,7 +42,7 @@
 }
 
 .image {
-  background-color: var(--color-bg);
+  background-color: var(--color-bg-dark);
   object-fit: contain;
 }
 
@@ -53,8 +52,6 @@
   }
 
   .image-wrapper {
-    background: #f9fafb;
-    border: 1px solid #e5e7eb;
     height: 20rem;
     overflow: hidden;
     position: relative;

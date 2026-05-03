@@ -8,7 +8,7 @@ export default function SkillSection() {
       <div className="container-dark">
         <div className="container-content">
           <div className={`container-context ${styles['skill-container']}`}>
-            <span className="font-green">// tools i work with</span>
+            <span className="font-green">{`// tools i work with`}</span>
             <h2>
               My <strong>Toolbox</strong>
             </h2>

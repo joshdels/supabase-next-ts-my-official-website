@@ -3,17 +3,18 @@ import styles from './Discover.module.css';
 import Link from 'next/link';
 import { caseStudies, projects } from '@/lib/api';
 import CaseStudyCard from './CaseStudy/CaseStudyCard';
+import { sortByDateDesc } from '@/utils/date';
 
 export default async function DiscoverSection() {
-  const studies = (await caseStudies()).slice(0, 3);
-  const projectsData = (await projects()).slice(0, 3);
+  const studies = sortByDateDesc(await caseStudies()).slice(0, 3);
+  const projectsData = sortByDateDesc(await projects()).slice(0, 3);
 
   return (
     <>
       <div id="discover" className="container">
         <div className="container-content">
           <div className="container-context">
-            <span className="font-orange">// projects & case-studies</span>
+            <span className="font-orange">{`// projects & case-studies`}</span>
             <h2>
               Work that speaks <strong>for itself</strong>
             </h2>

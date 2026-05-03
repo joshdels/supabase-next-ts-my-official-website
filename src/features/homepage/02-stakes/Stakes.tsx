@@ -9,7 +9,7 @@ export default function StakesSection() {
         <div className="container-content">
           <div className={styles['container-stakes']}>
             <main>
-              <span className="font-orange">// the problems</span>
+              <span className="font-orange">{`// the problems`}</span>
               <h2 className="font-heading">
                 Bad location decisions are{' '}
                 <strong className="font-heading-green">expensive</strong>{' '}

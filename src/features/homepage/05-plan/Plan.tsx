@@ -8,7 +8,7 @@ export default function PlanSection() {
       <div className="container-light">
         <div className="container-content">
           <div className="container-context">
-            <span className="font-orange">// how it works</span>
+            <span className="font-orange">{`// how it works`}</span>
             <h2>
               Working together is <strong>simple.</strong>{' '}
             </h2>
