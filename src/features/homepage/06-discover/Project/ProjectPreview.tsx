@@ -30,7 +30,7 @@ export default async function ProjectPreview({ id }: { id: string }) {
                 alt={projectData.name}
                 fill
                 className={styles.image}
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 33vw"
               />
             </div>
 
