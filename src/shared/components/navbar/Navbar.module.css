@@ -81,6 +81,7 @@
   background-color: var(--color-card-background);
   border: none;
   border-radius: 50%;
+  color: var(--color-text);
   margin-top: auto;
   padding: 0.5rem;
 }
@@ -89,6 +90,7 @@
   background-color: var(--color-card-background);
   border: none;
   border-radius: 50%;
+  color: var(--color-text);
   margin-top: auto;
   padding: 0.5rem;
 }

@@ -2,23 +2,10 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  padding-top: 150px;
 }
 
 .structure-card {
   display: grid;
   gap: 2rem;
-  grid-template-columns: repeat(1, 1fr);
-}
-
-@media screen and (width >= 768px) {
-  .structure-card {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media screen and (width >= 1200px) {
-  .structure-card {
-    grid-template-columns: repeat(3, 1fr);
-  }
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
 }

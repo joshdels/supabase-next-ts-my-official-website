@@ -10,19 +10,21 @@ export default async function CaseStudyList() {
     <>
       <div className="container">
         <div className="container-content-fix-height">
-          <div className={styles["container-study"]}>
-            <h3>Case Studies</h3>
-            {studies.length > 0 ? (
-              <div className={styles['structure-card']}>
-                {studies.map((item: any, index: number) => (
-                  <Link key={item.id} href={`/case-studies/${item.id}`}>
-                    <CaseStudyCard key={index} {...item} />
-                  </Link>
-                ))}
-              </div>
-            ) : (
-              <p>No Case Studies Available</p>
-            )}
+          <div className="container-context">
+            <div className={styles['container-study']}>
+              <h3>Case Studies</h3>
+              {studies.length > 0 ? (
+                <div className={styles['structure-card']}>
+                  {studies.map((item: any, index: number) => (
+                    <Link key={item.id} href={`/case-studies/${item.id}`}>
+                      <CaseStudyCard key={index} {...item} />
+                    </Link>
+                  ))}
+                </div>
+              ) : (
+                <p>No Case Studies Available</p>
+              )}
+            </div>
           </div>
         </div>
       </div>
